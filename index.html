@@ -199,6 +199,308 @@
             border: 3px solid white;
             transition: 0.3s;
         }
+
+        .seccion-tips {
+            background: #0a0a0a;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .seccion-tips::before {
+            content: 'IVAN GYM';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 200px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.02);
+            letter-spacing: 20px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .marca-agua {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .titulo-seccion-tips {
+            color: white;
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subtitulo-seccion-tips {
+            color: #888;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tip-card {
+            background: rgba(15, 15, 15, 0.95);
+            border-radius: 15px;
+            padding: 50px 40px;
+            max-width: 900px;
+            margin: 60px auto;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tip-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .badge-rojo {
+            background: rgba(220, 38, 38, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .badge-verde {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .badge-azul {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .badge-naranja {
+            background: rgba(249, 115, 22, 0.15);
+            color: #f97316;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .badge-morado {
+            background: rgba(168, 85, 247, 0.15);
+            color: #a855f7;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .badge-amarillo {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .tip-titulo {
+            color: white;
+            font-size: 56px;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .tip-subtitulo {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 35px;
+            font-weight: 600;
+        }
+
+        .terminal-box {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-header {
+            background: #252525;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-rojo {
+            background: #ff5f56;
+        }
+
+        .dot-amarillo {
+            background: #ffbd2e;
+        }
+
+        .dot-verde {
+            background: #27c93f;
+        }
+
+        .terminal-label {
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        .terminal-content {
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            line-height: 1.8;
+            color: white;
+        }
+
+        .code-keyword {
+            color: #c084fc;
+            font-style: italic;
+        }
+
+        .code-string {
+            color: #86efac;
+        }
+
+        .code-comment {
+            color: #555;
+            font-style: italic;
+        }
+
+        .code-orange {
+            color: #fb923c;
+        }
+
+        .code-white {
+            color: white;
+        }
+
+        .tip-info {
+            background: rgba(30, 30, 30, 0.6);
+            border-radius: 12px;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tip-info-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .tip-info-text {
+            color: #fbbf24;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* BOTÓN COPIAR PROMPT */
+        .btn-copiar {
+            background: linear-gradient(135deg, #c084fc, #a855f7);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-copiar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(168, 85, 247, 0.5);
+        }
+
+        /* BOTÓN FLOTANTE DE LLAMADA */
+        .llamada-flotante {
+            position: fixed;
+            bottom: 170px;
+            right: 30px;
+            background-color: #007AFF;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            z-index: 1000;
+            transition: 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .llamada-flotante:hover {
+            transform: scale(1.1);
+            background-color: #0051D5;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(0, 122, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 122, 255, 0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tip-titulo {
+                font-size: 36px;
+            }
+
+            .tip-card {
+                padding: 30px 20px;
+            }
+
+            .terminal-content {
+                font-size: 13px;
+                padding: 20px;
+            }
+
+            .seccion-tips::before {
+                font-size: 100px;
+            }
+
+            .titulo-seccion-tips {
+                font-size: 32px;
+            }
+        }
     </style>
 </head>
 
@@ -1325,6 +1627,402 @@
 
     </div>
 
+    <!-- ============================================ -->
+    <!-- SECCIÓN A: PROMPTS DE IA PARA EL GYM -->
+    <!-- ============================================ -->
+    <section class="seccion-tips">
+        <div class="marca-agua">IVAN GYM</div>
+
+        <h2 class="titulo-seccion-tips">🤖 PROMPTS DE IA PARA EL GYM</h2>
+        <p class="subtitulo-seccion-tips">Copia estos prompts y úsalos en ChatGPT o Claude para mejorar tu entrenamiento
+        </p>
+
+        <!-- PROMPT 1: REVIEW DE RUTINA -->
+        <div class="tip-card">
+            <span class="tip-badge badge-azul">📝 REVIEW DE RUTINA</span>
+            <h2 class="tip-titulo">REVISA TU<br>RUTINA SIN FILTROS</h2>
+            <p class="tip-subtitulo">Como tener un entrenador senior que te dice las verdades a la cara.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">PROMPT</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-keyword">Actúa como</span> <span class="code-white">entrenador con 10 años de
+                        experiencia.</span><br>
+                    <span class="code-white">Sé</span> <span class="code-orange">brutal y honesto.</span> <span
+                        class="code-white">Esta es mi rutina:</span><br>
+                    <span class="code-string">[pega tu rutina]</span><br><br>
+                    <span class="code-white">Busca:</span> <span class="code-orange">errores, ejercicios mal
+                        elegidos,</span><br>
+                    <span class="code-orange">volumen excesivo</span> <span class="code-white">y</span> <span
+                        class="code-orange">grupos descompensados.</span><br>
+                    <span class="code-comment">// Dame nota del 1 al 10 al final.</span>
+                </div>
+            </div>
+
+            <button class="btn-copiar" onclick="copiarPrompt(1)">📋 Copiar Prompt</button>
+
+            <div class="tip-info mt-3">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">"Brutal y honesto" hace que la IA no te endulce la respuesta. Sin eso, te dirá
+                    que está perfecta.</p>
+            </div>
+        </div>
+
+
+        <!-- PROMPT 2: DISEÑAR RUTINA DESDE 0 -->
+        <div class="tip-card">
+            <span class="tip-badge badge-verde">🏗️ DISEÑO DE RUTINA</span>
+            <h2 class="tip-titulo">DISEÑA TU<br>RUTINA DESDE 0</h2>
+            <p class="tip-subtitulo">Para cuando empiezas y no sabes ni cómo organizarte en el gym.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">PROMPT</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-keyword">Eres</span> <span class="code-white">un entrenador experto en
+                        hipertrofia.</span><br>
+                    <span class="code-white">Quiero una rutina:</span> <span
+                        class="code-string">[días/semana]</span><br>
+                    <span class="code-white">Mi nivel:</span> <span
+                        class="code-string">[principiante/intermedio/avanzado]</span><br>
+                    <span class="code-white">Objetivo:</span> <span class="code-string">[ganar
+                        músculo/fuerza/resistencia]</span><br><br>
+                    <span class="code-white">Dame:</span> <span class="code-orange">split, ejercicios
+                        principales,</span><br>
+                    <span class="code-orange">series, repeticiones</span> <span class="code-white">y las</span> <span
+                        class="code-orange">3 reglas</span><br>
+                    <span class="code-orange">más importantes</span> <span class="code-white">que debo
+                        seguir.</span><br>
+                    <span class="code-comment">// Explica el porqué de cada decisión.</span>
+                </div>
+            </div>
+
+            <button class="btn-copiar" onclick="copiarPrompt(2)">📋 Copiar Prompt</button>
+
+            <div class="tip-info mt-3">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Pedir "3 reglas más importantes" fuerza a la IA a priorizar. Sin eso, te suelta
+                    una lista infinita.</p>
+            </div>
+        </div>
+
+
+        <!-- PROMPT 3: OPTIMIZAR ENTRENO -->
+        <div class="tip-card">
+            <span class="tip-badge badge-naranja">⚡ OPTIMIZACIÓN</span>
+            <h2 class="tip-titulo">ENTRENAMIENTOS<br>MÁS RÁPIDOS YA</h2>
+            <p class="tip-subtitulo">Para cuando tu sesión dura 2 horas y no sabes qué cortar.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">PROMPT</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-keyword">Analiza</span> <span class="code-white">esta rutina y
+                        optimízala:</span><br>
+                    <span class="code-string">[pega tu rutina]</span><br><br>
+                    <span class="code-white">Contexto:</span> <span class="code-string">[tiempo disponible y
+                        objetivo]</span><br><br>
+                    <span class="code-white">Muéstrame:</span> <span class="code-orange">versión original</span> <span
+                        class="code-white">vs</span> <span class="code-orange">optimizada</span><br>
+                    <span class="code-white">y explica</span> <span class="code-orange">qué eliminar y por
+                        qué.</span><br>
+                    <span class="code-comment">// Ordena por impacto en hipertrofia.</span>
+                </div>
+            </div>
+
+            <button class="btn-copiar" onclick="copiarPrompt(3)">📋 Copiar Prompt</button>
+
+            <div class="tip-info mt-3">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Pedir "original vs optimizado" te muestra qué sobra. No solo palabras vacías.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- PROMPT 4: DIETA -->
+        <div class="tip-card">
+            <span class="tip-badge badge-rojo">🥗 PLAN DE DIETA</span>
+            <h2 class="tip-titulo">CALCULA TU<br>DIETA EN SEGUNDOS</h2>
+            <p class="tip-subtitulo">El prompt que más tiempo te ahorra. Macros y comidas hechas en 1 minuto.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">PROMPT</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-keyword">Calcula</span> <span class="code-white">mis macros para:</span><br>
+                    <span class="code-string">[volumen / definición / mantenimiento]</span><br><br>
+                    <span class="code-white">Mis datos:</span><br>
+                    <span class="code-orange">Peso:</span> <span class="code-string">[kg]</span> <span
+                        class="code-orange">Altura:</span> <span class="code-string">[cm]</span><br>
+                    <span class="code-orange">Edad:</span> <span class="code-string">[años]</span> <span
+                        class="code-orange">Actividad:</span> <span class="code-string">[nivel]</span><br><br>
+                    <span class="code-white">Dame:</span> <span class="code-orange">calorías, proteína, carbos,
+                        grasas</span><br>
+                    <span class="code-white">y un</span> <span class="code-orange">menú de ejemplo</span> <span
+                        class="code-white">para 1 día.</span><br>
+                    <span class="code-comment">// Comidas reales y fáciles, no recetas raras.</span>
+                </div>
+            </div>
+
+            <button class="btn-copiar" onclick="copiarPrompt(4)">📋 Copiar Prompt</button>
+
+            <div class="tip-info mt-3">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Mencionar "comidas reales y fáciles" evita que te recomiende comer quinoa con
+                    espirulina cada día.</p>
+            </div>
+        </div>
+
+
+        <!-- PROMPT 5: CORREGIR TÉCNICA -->
+        <div class="tip-card">
+            <span class="tip-badge badge-morado">💪 TÉCNICA</span>
+            <h2 class="tip-titulo">CORRIGE TU<br>TÉCNICA AL INSTANTE</h2>
+            <p class="tip-subtitulo">El prompt que evita lesiones. Aprende la técnica perfecta de cualquier ejercicio.
+            </p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">PROMPT</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-keyword">Explícame</span> <span class="code-white">la técnica perfecta
+                        de:</span><br>
+                    <span class="code-string">[nombre del ejercicio]</span><br><br>
+                    <span class="code-white">Incluye:</span> <span class="code-orange">postura inicial,
+                        recorrido,</span><br>
+                    <span class="code-orange">respiración, errores comunes</span><br>
+                    <span class="code-white">y</span> <span class="code-orange">cómo activar el músculo</span> <span
+                        class="code-white">objetivo.</span><br><br>
+                    <span class="code-white">También:</span> <span class="code-orange">2 variantes</span> <span
+                        class="code-white">si tengo</span><br>
+                    <span class="code-string">[lesión o limitación]</span><span class="code-comment">.</span><br>
+                    <span class="code-comment">// Sin tecnicismos, lenguaje claro.</span>
+                </div>
+            </div>
+
+            <button class="btn-copiar" onclick="copiarPrompt(5)">📋 Copiar Prompt</button>
+
+            <div class="tip-info mt-3">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Pedir "errores comunes" es clave. Te dice lo que NO debes hacer, no solo lo que
+                    debes hacer.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN B: CONSEJOS DIRECTOS DEL GYM -->
+    <!-- ============================================ -->
+    <section class="seccion-tips" style="background: #050505;">
+        <div class="marca-agua">CONSEJOS</div>
+
+        <h2 class="titulo-seccion-tips">🔥 CONSEJOS BRUTALES PARA EL GYM</h2>
+        <p class="subtitulo-seccion-tips">Verdades que nadie te dice cuando empiezas a entrenar</p>
+
+        <!-- CONSEJO 1: PROGRESIÓN -->
+        <div class="tip-card">
+            <span class="tip-badge badge-rojo">🔥 PROGRESIÓN</span>
+            <h2 class="tip-titulo">SIN PROGRESIÓN<br>NO HAY CRECIMIENTO</h2>
+            <p class="tip-subtitulo">El error nº1 de los gym bros: hacer siempre lo mismo y esperar resultados.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">REGLA</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-keyword">Si</span> <span class="code-white">la semana pasada hiciste</span> <span
+                        class="code-string">"banca 80kg x 8"</span><br>
+                    <span class="code-white">esta semana tienes que hacer:</span><br><br>
+                    <span class="code-orange">→ 80kg x 9 reps</span> <span class="code-comment">(añadir 1
+                        rep)</span><br>
+                    <span class="code-orange">→ 82.5kg x 8 reps</span> <span class="code-comment">(subir
+                        peso)</span><br>
+                    <span class="code-orange">→ 80kg x 8 con mejor técnica</span><br><br>
+                    <span class="code-comment">// El músculo crece con sobrecarga progresiva, no con repetición.</span>
+                </div>
+            </div>
+
+            <div class="tip-info">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Apunta tus pesos en una libreta o app. Sin medir, no sabes si progresas.</p>
+            </div>
+        </div>
+
+
+        <!-- CONSEJO 2: TÉCNICA -->
+        <div class="tip-card">
+            <span class="tip-badge badge-amarillo">⚠️ TÉCNICA > EGO</span>
+            <h2 class="tip-titulo">DEJA EL EGO<br>EN LA PUERTA</h2>
+            <p class="tip-subtitulo">Mejor 60kg con técnica perfecta que 100kg balanceándote como un pollo.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">CHECKLIST</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-orange">✓</span> <span class="code-white">¿Controlas el peso en la
+                        bajada?</span><br>
+                    <span class="code-orange">✓</span> <span class="code-white">¿Sientes el músculo trabajar?</span><br>
+                    <span class="code-orange">✓</span> <span class="code-white">¿El movimiento es limpio?</span><br>
+                    <span class="code-orange">✓</span> <span class="code-white">¿Llegas al rango
+                        completo?</span><br><br>
+                    <span class="code-keyword">Si</span> <span class="code-white">respondiste</span> <span
+                        class="code-string">"NO"</span> <span class="code-white">a alguna,</span><br>
+                    <span class="code-orange">BAJA EL PESO.</span><br>
+                    <span class="code-comment">// Tu ego no construye músculo, la técnica sí.</span>
+                </div>
+            </div>
+
+            <div class="tip-info">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Grábate de vez en cuando. Lo que sientes y lo que se ve no siempre coincide.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- CONSEJO 3: DESCANSO -->
+        <div class="tip-card">
+            <span class="tip-badge badge-azul">😴 DESCANSO</span>
+            <h2 class="tip-titulo">NO CRECES EN EL GYM,<br>CRECES DURMIENDO</h2>
+            <p class="tip-subtitulo">El secreto que el 90% de los gym bros ignoran. Sin descanso, no hay músculo.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">FÓRMULA</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-orange">ENTRENO</span> <span class="code-white">+</span> <span
+                        class="code-orange">COMIDA</span> <span class="code-white">+</span> <span
+                        class="code-orange">DESCANSO</span> <span class="code-white">=</span> <span
+                        class="code-string">MÚSCULO</span><br><br>
+                    <span class="code-keyword">Mínimos:</span><br>
+                    <span class="code-orange">→</span> <span class="code-string">7-9 horas</span> <span
+                        class="code-white">de sueño</span><br>
+                    <span class="code-orange">→</span> <span class="code-string">48h</span> <span
+                        class="code-white">entre entrenar mismo músculo</span><br>
+                    <span class="code-orange">→</span> <span class="code-string">1-2 días</span> <span
+                        class="code-white">de descanso completo/semana</span><br><br>
+                    <span class="code-comment">// Si entrenas 7 días y duermes 5 horas, no creces. Te rompes.</span>
+                </div>
+            </div>
+
+            <div class="tip-info">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Si no rindes en el gym, probablemente sea porque no descansas, no porque te
+                    falten suplementos.</p>
+            </div>
+        </div>
+
+
+        <!-- CONSEJO 4: ALIMENTACIÓN -->
+        <div class="tip-card">
+            <span class="tip-badge badge-verde">🥗 ALIMENTACIÓN</span>
+            <h2 class="tip-titulo">SIN PROTE,<br>NO HAY MUSCLE</h2>
+            <p class="tip-subtitulo">Si no comes proteína, da igual cuánto entrenes. Tu cuerpo no tiene material para
+                construir.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">MACROS</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-keyword">Regla básica:</span><br><br>
+                    <span class="code-orange">Proteína:</span> <span class="code-string">1.6 - 2.2g</span> <span
+                        class="code-white">por kg de peso</span><br>
+                    <span class="code-orange">Carbos:</span> <span class="code-string">3 - 5g</span> <span
+                        class="code-white">por kg de peso</span><br>
+                    <span class="code-orange">Grasas:</span> <span class="code-string">0.8 - 1g</span> <span
+                        class="code-white">por kg de peso</span><br><br>
+                    <span class="code-keyword">Ejemplo</span> <span class="code-white">si pesas</span> <span
+                        class="code-string">75kg:</span><br>
+                    <span class="code-orange">→</span> <span class="code-string">150g proteína / 300g carbos / 70g
+                        grasa</span><br>
+                    <span class="code-comment">// La proteína es lo más importante. No la negocies.</span>
+                </div>
+            </div>
+
+            <div class="tip-info">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Fuentes: pollo, atún, huevos, ternera, lácteos. Si no llegas con comida, mete
+                    proteína en polvo.</p>
+            </div>
+        </div>
+
+
+        <!-- CONSEJO 5: CONSTANCIA -->
+        <div class="tip-card">
+            <span class="tip-badge badge-morado">🎯 CONSTANCIA</span>
+            <h2 class="tip-titulo">ENTRENAR 6 MESES<br>NO ES SUFICIENTE</h2>
+            <p class="tip-subtitulo">El gym no es una dieta de 30 días. Es un cambio de vida. Acéptalo o vete.</p>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-rojo"></span>
+                    <span class="terminal-dot dot-amarillo"></span>
+                    <span class="terminal-dot dot-verde"></span>
+                    <span class="terminal-label">REALIDAD</span>
+                </div>
+                <div class="terminal-content">
+                    <span class="code-keyword">Tiempo real</span> <span class="code-white">para ver
+                        resultados:</span><br><br>
+                    <span class="code-orange">3 meses:</span> <span class="code-white">tú notas el cambio</span><br>
+                    <span class="code-orange">6 meses:</span> <span class="code-white">tu familia lo nota</span><br>
+                    <span class="code-orange">1 año:</span> <span class="code-white">tus amigos lo notan</span><br>
+                    <span class="code-orange">2 años:</span> <span class="code-white">la gente te pregunta qué
+                        haces</span><br>
+                    <span class="code-orange">5+ años:</span> <span class="code-white">empiezas a verte como
+                        querías</span><br><br>
+                    <span class="code-comment">// Si dejas el gym a los 3 meses porque "no veo cambios", nunca verás
+                        nada.</span>
+                </div>
+            </div>
+
+            <div class="tip-info">
+                <span class="tip-info-icon">💡</span>
+                <p class="tip-info-text">Los que ves "naturales" llevan MÍNIMO 5 años entrenando duro. No te compares
+                    con un mes.</p>
+            </div>
+        </div>
+
+    </section>
+
 
     <!-- ============================================ -->
     <!-- FOOTER COMPLETO CON REDES SOCIALES -->
@@ -1375,6 +2073,11 @@
     <!-- Instagram flotante -->
     <a href="https://www.instagram.com/astro10__/" target="_blank" class="instagram-flotante" title="Ver Instagram">
         📸
+    </a>
+
+    <!-- Teléfono flotante -->
+    <a href="tel:+34635816502" class="llamada-flotante" title="Llamar a Iván">
+        📞
     </a>
 
 
@@ -1471,7 +2174,6 @@ ${mensaje}
 
 ¡Gracias!`;
 
-            // Tu número de WhatsApp en formato internacional (España: 34)
             const numero = '34635816502';
             const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensajeCompleto)}`;
             window.open(url, '_blank');
@@ -1502,13 +2204,77 @@ ${mensaje}
 
 ¡Gracias!`;
 
-            // Copiar al portapapeles
             navigator.clipboard.writeText(mensajeCompleto).then(() => {
                 alert('✅ ¡Mensaje copiado al portapapeles!\n\nAhora se abrirá Instagram. Solo pega el mensaje (Ctrl+V o Pegar) y envíalo.');
                 window.open('https://ig.me/m/astro10__', '_blank');
             }).catch(() => {
                 alert('⚠️ Copia este mensaje manualmente y pégalo en Instagram:\n\n' + mensajeCompleto);
                 window.open('https://ig.me/m/astro10__', '_blank');
+            });
+        }
+
+
+        // ============================================
+        // FUNCIÓN COPIAR PROMPT AL PORTAPAPELES
+        // ============================================
+        function copiarPrompt(numero) {
+            const prompts = {
+                1: `Actúa como entrenador con 10 años de experiencia.
+Sé brutal y honesto. Esta es mi rutina:
+[pega tu rutina]
+
+Busca: errores, ejercicios mal elegidos,
+volumen excesivo y grupos descompensados.
+// Dame nota del 1 al 10 al final.`,
+
+                2: `Eres un entrenador experto en hipertrofia.
+Quiero una rutina: [días/semana]
+Mi nivel: [principiante/intermedio/avanzado]
+Objetivo: [ganar músculo/fuerza/resistencia]
+
+Dame: split, ejercicios principales,
+series, repeticiones y las 3 reglas
+más importantes que debo seguir.
+// Explica el porqué de cada decisión.`,
+
+                3: `Analiza esta rutina y optimízala:
+[pega tu rutina]
+
+Contexto: [tiempo disponible y objetivo]
+
+Muéstrame: versión original vs optimizada
+y explica qué eliminar y por qué.
+// Ordena por impacto en hipertrofia.`,
+
+                4: `Calcula mis macros para:
+[volumen / definición / mantenimiento]
+
+Mis datos:
+Peso: [kg] Altura: [cm]
+Edad: [años] Actividad: [nivel]
+
+Dame: calorías, proteína, carbos, grasas
+y un menú de ejemplo para 1 día.
+// Comidas reales y fáciles, no recetas raras.`,
+
+                5: `Explícame la técnica perfecta de:
+[nombre del ejercicio]
+
+Incluye: postura inicial, recorrido,
+respiración, errores comunes
+y cómo activar el músculo objetivo.
+
+También: 2 variantes si tengo
+[lesión o limitación].
+// Sin tecnicismos, lenguaje claro.`
+            };
+
+            const prompt = prompts[numero];
+
+            navigator.clipboard.writeText(prompt).then(() => {
+                alert('✅ ¡Prompt copiado al portapapeles!\n\nAhora pégalo en ChatGPT o Claude.');
+            }).catch(() => {
+                alert('⚠️ Copia manualmente este prompt:\n\n' + prompt);
             });
         }
     </script>
