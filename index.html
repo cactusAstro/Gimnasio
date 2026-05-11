@@ -5014,7 +5014,7 @@ También: 2 variantes si tengo
             msg.classList.add('activo');
 
             // Confetti
-            lanzarConfetti(80);
+            lanzarConfetti(1000);
 
             // Badge de logro
             if (!eastersEncontrados.includes(nombre)) {
@@ -5030,7 +5030,7 @@ También: 2 variantes si tengo
                 if (eastersEncontrados.length === 6) {
                     setTimeout(() => {
                         mostrarBadge('👑 ¡HAS ENCONTRADO TODOS LOS EASTER EGGS!');
-                        lanzarConfetti(200);
+                        lanzarConfetti(1000);
                     }, 3500);
                 }
             }
@@ -5137,7 +5137,7 @@ También: 2 variantes si tengo
         // ============================================
         // CONFETTI
         // ============================================
-        function lanzarConfetti(cantidad = 50) {
+        function lanzarConfetti(cantidad = 1000) {
             const colores = ['#ff0000', '#fbbf24', '#22c55e', '#3b82f6', '#a855f7', '#ec4899', '#ffffff'];
             for (let i = 0; i < cantidad; i++) {
                 const piece = document.createElement('div');
@@ -5256,7 +5256,7 @@ También: 2 variantes si tengo
         if (mostrarResultadoOriginal) {
             window.mostrarResultado = function () {
                 mostrarResultadoOriginal();
-                setTimeout(() => lanzarConfetti(100), 300);
+                setTimeout(() => lanzarConfetti(1000), 300);
             };
         }
 
@@ -5267,7 +5267,7 @@ También: 2 variantes si tengo
                 const textoAntes = document.getElementById('compromisoInput').value.trim();
                 guardarCompromisoOriginal();
                 if (textoAntes) {
-                    lanzarConfetti(60);
+                    lanzarConfetti(1000);
                 }
             };
         }
