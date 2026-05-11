@@ -671,6 +671,460 @@
         .chat-enviar:hover {
             background: #128C7E;
         }
+
+        /* ============================================ */
+        /* BARRA DE PROGRESO DE SCROLL */
+        /* ============================================ */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff0000, #ff6f00, #fbbf24);
+            z-index: 9999;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(255, 100, 0, 0.7);
+        }
+
+        /* ============================================ */
+        /* TEST DE NIVEL */
+        /* ============================================ */
+        .seccion-test,
+        .seccion-faq,
+        .seccion-glosario,
+        .seccion-compromiso {
+            padding: 60px 30px;
+            margin: 40px auto;
+            max-width: 1100px;
+            border-radius: 20px;
+            color: white;
+            border: 3px solid white;
+        }
+
+        .seccion-test {
+            background: linear-gradient(135deg, #1a1a1a, #2a0000);
+        }
+
+        .test-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .test-pregunta {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+
+        .test-opcion {
+            display: block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+            text-align: left;
+            width: 100%;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        .test-opcion:hover {
+            background: rgba(255, 0, 0, 0.2);
+            border-color: red;
+            transform: translateX(10px);
+        }
+
+        .test-opcion.seleccionada {
+            background: linear-gradient(135deg, #ff0000, #8b0000);
+            border-color: white;
+        }
+
+        .test-resultado {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .test-resultado h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .nivel-principiante {
+            color: #22c55e;
+        }
+
+        .nivel-intermedio {
+            color: #fbbf24;
+        }
+
+        .nivel-avanzado {
+            color: #ef4444;
+        }
+
+        .test-progress-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .test-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #fbbf24, #ef4444);
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        /* ============================================ */
+        /* FAQ */
+        /* ============================================ */
+        .seccion-faq {
+            background: linear-gradient(135deg, #2a0000, #1a1a1a);
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin: 12px 0;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .faq-item.activo {
+            border-color: #fbbf24;
+        }
+
+        .faq-pregunta {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 17px;
+            color: white;
+        }
+
+        .faq-pregunta:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-icono {
+            font-size: 22px;
+            transition: 0.3s;
+            color: #fbbf24;
+        }
+
+        .faq-item.activo .faq-icono {
+            transform: rotate(45deg);
+        }
+
+        .faq-respuesta {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 25px;
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .faq-item.activo .faq-respuesta {
+            max-height: 500px;
+            padding: 0 25px 20px 25px;
+        }
+
+        /* ============================================ */
+        /* MITOS */
+        /* ============================================ */
+        .seccion-mitos {
+            background: #0a0a0a;
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+
+        .mito-card {
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px auto;
+            max-width: 800px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .mito-header {
+            background: linear-gradient(90deg, #b91c1c, #7f1d1d);
+            color: white;
+            padding: 15px 25px;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .mito-mentira {
+            padding: 20px 25px;
+            background: rgba(220, 38, 38, 0.1);
+            color: #fca5a5;
+            font-size: 17px;
+            font-style: italic;
+        }
+
+        .mito-mentira::before {
+            content: '❌ MENTIRA: ';
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .mito-verdad {
+            padding: 20px 25px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #86efac;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .mito-verdad::before {
+            content: '✅ VERDAD: ';
+            font-weight: bold;
+        }
+
+        /* ============================================ */
+        /* GLOSARIO */
+        /* ============================================ */
+        .seccion-glosario {
+            background: linear-gradient(135deg, #1a1a1a, #2a0000);
+        }
+
+        .glosario-buscador {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 3px solid white;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 16px;
+            display: block;
+            font-family: inherit;
+        }
+
+        .glosario-buscador::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .glosario-buscador:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(255, 191, 36, 0.5);
+        }
+
+        .glosario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .glosario-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .glosario-item:hover {
+            transform: translateY(-5px);
+            border-color: #fbbf24;
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.3);
+        }
+
+        .glosario-termino {
+            font-weight: bold;
+            font-size: 18px;
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+
+        .glosario-definicion {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .sin-resultados-glosario {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255, 255, 255, 0.5);
+            grid-column: 1 / -1;
+        }
+
+        /* ============================================ */
+        /* COMPROMISO */
+        /* ============================================ */
+        .seccion-compromiso {
+            background: linear-gradient(135deg, #fbbf24, #ef4444);
+            text-align: center;
+        }
+
+        .compromiso-form {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .compromiso-input {
+            width: 100%;
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid white;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 16px;
+            min-height: 100px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .compromiso-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-compromiso {
+            background: white;
+            color: #2a0000;
+            border: 3px solid white;
+            padding: 15px 40px;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 18px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-compromiso:hover {
+            background: #2a0000;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .compromiso-actual {
+            background: rgba(0, 0, 0, 0.5);
+            border: 3px solid white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        .compromiso-fecha {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 10px;
+        }
+
+        /* ============================================ */
+        /* TIMELINE */
+        /* ============================================ */
+        .seccion-timeline {
+            background: #050505;
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+
+        .timeline-titulo {
+            text-align: center;
+            color: white;
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 90px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #ef4444, #fbbf24, #22c55e, #3b82f6);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-fecha {
+            position: absolute;
+            left: -80px;
+            top: 0;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ef4444, #8b0000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .timeline-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px 25px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .timeline-card:hover {
+            transform: translateX(10px);
+            border-color: #fbbf24;
+        }
+
+        .timeline-card h4 {
+            color: #fbbf24;
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-container {
+                padding-left: 70px;
+            }
+
+            .timeline-fecha {
+                left: -65px;
+                width: 55px;
+                height: 55px;
+                font-size: 11px;
+            }
+
+            .timeline-titulo {
+                font-size: 28px;
+            }
+        }
     </style>
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -682,6 +1136,9 @@
 </head>
 
 <body>
+
+    <!-- BARRA DE PROGRESO DE SCROLL -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-brand sticky-top mx-auto">
@@ -2876,8 +3333,7 @@
 
             <div class="col-12 col-md-6 mb-3 mb-md-0">
 
-                <img src="./press_militar.png" alt="Brazo"
-                    class="img-fluid"
+                <img src="./press_militar.png" alt="Brazo" class="img-fluid"
                     style="max-width: 100%; height: auto; border: 3px solid black; border-radius: 8px;">
 
             </div>
@@ -3362,6 +3818,324 @@
 
 
     <!-- ============================================ -->
+    <!-- TEST: ¿EN QUÉ NIVEL ESTÁS? -->
+    <!-- ============================================ -->
+    <section class="seccion-test" id="seccionTest">
+        <h2 class="text-center" style="font-size: 42px; font-weight: bold;">🎯 ¿EN QUÉ NIVEL ESTÁS?</h2>
+        <p class="text-center" style="color: #fbbf24; font-size: 18px;">Responde 6 preguntas y descubre tu nivel real
+        </p>
+
+        <div class="test-progress-bar">
+            <div class="test-progress-fill" id="testProgress"></div>
+        </div>
+
+        <div id="testContenido"></div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- FAQ - PREGUNTAS FRECUENTES -->
+    <!-- ============================================ -->
+    <section class="seccion-faq">
+        <h2 class="text-center" style="font-size: 42px; font-weight: bold;">❓ PREGUNTAS FRECUENTES</h2>
+        <p class="text-center" style="color: #fbbf24; font-size: 18px; margin-bottom: 40px;">Las dudas que TODOS tenemos
+            al empezar</p>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>🤔 ¿Cuánto tardo en ver resultados?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                <strong>3 meses:</strong> tú notas el cambio en el espejo. <strong>6 meses:</strong> tu familia lo nota.
+                <strong>1 año:</strong> tus amigos lo notan. <strong>2 años:</strong> la gente te pregunta qué haces. La
+                constancia es lo único que funciona.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>💊 ¿Necesito suplementos para empezar?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                <strong>NO.</strong> Si llevas menos de 1 año entrenando, con una buena alimentación es suficiente. Solo
+                te recomendaría creatina (3-5g/día) por ser barata y muy estudiada. El resto puede esperar.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>🗓️ ¿Puedo entrenar todos los días?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                Puedes, pero <strong>no necesitas</strong>. Con 4-5 días bien estructurados creces igual o más que con
+                7. Recuerda: <em>el músculo no crece en el gym, crece descansando</em>.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>⏱️ ¿Cuánto debo descansar entre series?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                Depende del objetivo:<br>
+                • <strong>Fuerza</strong> (1-5 reps): 3-5 minutos<br>
+                • <strong>Hipertrofia</strong> (6-12 reps): 1.5-3 minutos<br>
+                • <strong>Resistencia</strong> (15+ reps): 30-60 segundos
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>🌅 ¿Es mejor entrenar por la mañana o por la tarde?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                La hora <strong>NO importa</strong>. Lo importante es la <strong>constancia</strong>. Entrena cuando
+                puedas mantener la rutina. El mejor momento es el que puedes cumplir todos los días.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>🏃 ¿Tengo que hacer cardio para perder grasa?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                No es obligatorio. La grasa se pierde con <strong>déficit calórico</strong> (comer menos de lo que
+                gastas). El cardio ayuda a quemar calorías, pero si controlas la dieta, puedes definir solo con pesas.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>😤 ¿Por qué no veo cambios si entreno mucho?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                3 razones típicas:<br>
+                1. <strong>No comes suficiente proteína</strong> (mínimo 1.6g/kg)<br>
+                2. <strong>No descansas bien</strong> (menos de 7h de sueño)<br>
+                3. <strong>No haces sobrecarga progresiva</strong> (mueves siempre el mismo peso)
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>🔄 ¿Recupero el músculo si paro 1 mes?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                <strong>SÍ.</strong> Existe lo que se llama <em>"memoria muscular"</em>. Si has entrenado durante años,
+                recuperarás tu nivel en 2-4 semanas al volver. No empiezas desde cero.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>♀️ ¿Las mujeres se ponen masculinas con pesas?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                <strong>NO.</strong> Las mujeres tienen 10-20 veces menos testosterona que los hombres. Es
+                <em>biológicamente imposible</em> que cojan musculatura masculina de forma natural. Las que ves en redes
+                con cuerpos extremos usan sustancias.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-pregunta" onclick="toggleFAQ(this)">
+                <span>🍔 ¿Cuántas calorías necesito al día?</span>
+                <span class="faq-icono">+</span>
+            </div>
+            <div class="faq-respuesta">
+                Fórmula rápida según tu objetivo:<br>
+                • <strong>Definir</strong>: peso (kg) × 28-32<br>
+                • <strong>Mantener</strong>: peso (kg) × 33-37<br>
+                • <strong>Volumen</strong>: peso (kg) × 38-42<br>
+                Ejemplo: si pesas 75kg y quieres ganar músculo → 75 × 40 = <strong>3000 kcal/día</strong>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- MITOS DEL GYM -->
+    <!-- ============================================ -->
+    <section class="seccion-mitos">
+        <h2 class="text-center" style="color: white; font-size: 42px; font-weight: bold;">🚫 MITOS DEL GYM DESMONTADOS
+        </h2>
+        <p class="text-center" style="color: #fbbf24; font-size: 18px; margin-bottom: 40px;">Mentiras que TODOS hemos
+            creído alguna vez</p>
+
+        <div class="mito-card">
+            <div class="mito-header">MITO #1 · MÚSCULO Y GRASA</div>
+            <div class="mito-mentira">"Si dejas de entrenar, el músculo se convierte en grasa"</div>
+            <div class="mito-verdad">El músculo y la grasa son tejidos completamente diferentes. Si dejas de entrenar,
+                el músculo se atrofia (se reduce), pero NO se convierte en grasa. La grasa aparece si comes más calorías
+                de las que gastas.</div>
+        </div>
+
+        <div class="mito-card">
+            <div class="mito-header">MITO #2 · LOS HUEVOS</div>
+            <div class="mito-mentira">"Los huevos te suben el colesterol malo"</div>
+            <div class="mito-verdad">Estudios actuales demuestran que el colesterol de los huevos tiene poco impacto en
+                el colesterol en sangre en personas sanas. Los huevos son una de las MEJORES fuentes de proteína. Puedes
+                comer 2-3 al día sin problema.</div>
+        </div>
+
+        <div class="mito-card">
+            <div class="mito-header">MITO #3 · COMER CADA 3 HORAS</div>
+            <div class="mito-mentira">"Hay que comer cada 3 horas para acelerar el metabolismo"</div>
+            <div class="mito-verdad">La frecuencia de las comidas NO acelera el metabolismo. Lo único que importa son
+                las calorías totales y los macros del día. Puedes comer 3 veces o 6 veces, los resultados serán los
+                mismos.</div>
+        </div>
+
+        <div class="mito-card">
+            <div class="mito-header">MITO #4 · EL SUDOR</div>
+            <div class="mito-mentira">"Si sudas más, quemas más grasa"</div>
+            <div class="mito-verdad">El sudor SOLO es regulación de temperatura corporal. Puedes sudar mucho haciendo
+                cardio suave en verano y quemar poca grasa. O sudar poco entrenando pesas y quemar más. Sudar ≠ quemar
+                grasa.</div>
+        </div>
+
+        <div class="mito-card">
+            <div class="mito-header">MITO #5 · ENTRENAR EN AYUNAS</div>
+            <div class="mito-mentira">"Entrenar en ayunas quema más grasa"</div>
+            <div class="mito-verdad">Quemar grasa depende del déficit calórico TOTAL del día, no del momento. Entrenar
+                en ayunas puede reducir tu rendimiento. Si entrenas mejor desayunando, desayuna.</div>
+        </div>
+
+        <div class="mito-card">
+            <div class="mito-header">MITO #6 · MUCHAS REPS PARA DEFINIR</div>
+            <div class="mito-mentira">"Para definir hay que entrenar con peso ligero y muchas reps"</div>
+            <div class="mito-verdad">La definición depende de tu déficit calórico, NO del rango de repeticiones. De
+                hecho, en definición debes seguir entrenando pesado para MANTENER el músculo. Bajar peso y subir reps te
+                hace perder fuerza, no grasa.</div>
+        </div>
+
+        <div class="mito-card">
+            <div class="mito-header">MITO #7 · LA VENTANA ANABÓLICA</div>
+            <div class="mito-mentira">"Hay que tomar la proteína justo después de entrenar o pierdes los gains"</div>
+            <div class="mito-verdad">La famosa "ventana anabólica" de 30 minutos es un MITO. La síntesis proteica está
+                elevada durante 24-48h después de entrenar. Lo importante es el TOTAL de proteína diaria, no la hora
+                exacta.</div>
+        </div>
+
+        <div class="mito-card">
+            <div class="mito-header">MITO #8 · EL CARDIO QUEMA MÚSCULO</div>
+            <div class="mito-mentira">"Si haces cardio, pierdes todo el músculo que has ganado"</div>
+            <div class="mito-verdad">Cantidades MODERADAS de cardio (2-4 sesiones de 20-30 min) NO queman músculo si
+                comes suficiente proteína y entrenas fuerza. Solo es perjudicial si haces 2 horas de cardio diarias con
+                déficit extremo.</div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- GLOSARIO -->
+    <!-- ============================================ -->
+    <section class="seccion-glosario">
+        <h2 class="text-center" style="font-size: 42px; font-weight: bold;">📚 GLOSARIO DEL GYM</h2>
+        <p class="text-center" style="color: #fbbf24; font-size: 18px;">Todos los términos que escuchas pero no sabes
+            qué significan</p>
+
+        <input type="text" class="glosario-buscador" id="glosarioBuscador" placeholder="🔍 Busca un término..."
+            oninput="filtrarGlosario()">
+
+        <div class="glosario-grid" id="glosarioGrid"></div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- COMPROMISO FITNESS -->
+    <!-- ============================================ -->
+    <section class="seccion-compromiso">
+        <h2 style="font-size: 42px; font-weight: bold;">🎯 MI COMPROMISO FITNESS</h2>
+        <p style="font-size: 18px;">Escribe tu objetivo. Cada vez que vuelvas, te lo recordaré.</p>
+
+        <div class="compromiso-form">
+            <textarea class="compromiso-input" id="compromisoInput"
+                placeholder="Ej: Voy a entrenar 4 días esta semana y comer 150g de proteína al día"></textarea>
+            <button class="btn-compromiso" onclick="guardarCompromiso()">💪 GUARDAR COMPROMISO</button>
+        </div>
+
+        <div class="compromiso-actual" id="compromisoActual" style="display: none;">
+            <h4>📌 TU COMPROMISO ACTUAL:</h4>
+            <p id="compromisoTexto" style="font-size: 18px; font-style: italic;"></p>
+            <p class="compromiso-fecha" id="compromisoFecha"></p>
+            <button class="btn btn-light" onclick="borrarCompromiso()"
+                style="margin-top: 15px; background: rgba(0,0,0,0.5); color: white; border: 2px solid white;">🗑️ Borrar
+                y empezar de nuevo</button>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- TIMELINE - MI HISTORIA -->
+    <!-- ============================================ -->
+    <section class="seccion-timeline">
+        <h2 class="timeline-titulo">🛤️ MI HISTORIA</h2>
+        <p style="text-align: center; color: #fbbf24; font-size: 18px; margin-bottom: 40px;">De flacucho a apasionado
+            del gym</p>
+
+        <div class="timeline-container">
+
+            <div class="timeline-item">
+                <div class="timeline-fecha">2023</div>
+                <div class="timeline-card">
+                    <h4>🏁 EL INICIO</h4>
+                    <p>Pesaba 55kg con 16 años. Era el más Flaco de mi clase. Decidí empezar a entrenar para cambiar
+                        mi físico y mi mentalidad.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-fecha">2024</div>
+                <div class="timeline-card">
+                    <h4>💪 PRIMERAS GANANCIAS</h4>
+                    <p>Después de un año entrenando como un loco, empecé a interesarme por el power y empecé a entrenar más por fuerza que por músculo</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-fecha">2025</div>
+                <div class="timeline-card">
+                    <h4>😃 COMO CASI PIERDO TODO, PERO NO</h4>
+                    <p>Perdí mucha fuerza y músculo por problemas personales y estrés. Recuerda que el estrés muchas veces te va a hacer verte mas inchado y vas a rendir peor 🫪</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-fecha">2026</div>
+                <div class="timeline-card">
+                    <h4>🫨 COMO VOLVER </h4>
+                    <p>Probando distintas rutinas, lo mejor que puedes hacer es entrenar pocos días pero demasiado fuerte, sobretodo si eres natural. Vas a teer menos recursos para recuperarte por lo que si entrenas fuerte pero pocos días, vas a ver mas cambios.</p>
+                </div>
+            </div>
+
+
+            <div class="timeline-item">
+                <div class="timeline-fecha">2026</div>
+                <div class="timeline-card">
+                    <h4>🚀 CREO ESTA WEB</h4>
+                    <p>Quiero que la gente vea la verdad del gimnasio y no las tonterias de:</p>
+                    <ul>
+                        <li>Muchas repeticiones en definición</li>
+                        <li>Si tienes abdominales estás super fuerte (Pesas 60KG PUTO INUTIL)</li>
+                        <li>No digas que estas fuerte si llevas 3-4 meses entrenando (No eres un clturista o un powerlifter de élite)</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
     <!-- FOOTER COMPLETO CON REDES SOCIALES -->
     <!-- ============================================ -->
     <footer class="mt-5 p-4 text-center mx-auto"
@@ -3697,6 +4471,292 @@ También: 2 variantes si tengo
                     .catch(err => console.log('❌ Error:', err));
             });
         }
+
+        // ============================================
+        // BARRA DE PROGRESO DE SCROLL
+        // ============================================
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const porcentaje = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scrollProgress').style.width = porcentaje + '%';
+        });
+
+
+        // ============================================
+        // TEST DE NIVEL
+        // ============================================
+        const preguntasTest = [
+            {
+                pregunta: "1️⃣ ¿Cuánto tiempo llevas entrenando?",
+                opciones: [
+                    { texto: "Menos de 3 meses", puntos: 1 },
+                    { texto: "Entre 3 y 12 meses", puntos: 2 },
+                    { texto: "Entre 1 y 2 años", puntos: 3 },
+                    { texto: "Más de 2 años", puntos: 4 }
+                ]
+            },
+            {
+                pregunta: "2️⃣ ¿Cuánto levantas en press banca?",
+                opciones: [
+                    { texto: "No sé / no he probado / menos de 40kg", puntos: 1 },
+                    { texto: "Entre 40 y 60kg", puntos: 2 },
+                    { texto: "Entre 60 y 80kg", puntos: 3 },
+                    { texto: "Más de 80kg", puntos: 4 }
+                ]
+            },
+            {
+                pregunta: "3️⃣ ¿Cómo es tu rutina actual?",
+                opciones: [
+                    { texto: "No tengo rutina fija, voy improvisando", puntos: 1 },
+                    { texto: "Hago full body 2-3 días a la semana", puntos: 2 },
+                    { texto: "Sigo un split (PPL, torso/pierna, etc.)", puntos: 3 },
+                    { texto: "Tengo una programación con periodización", puntos: 4 }
+                ]
+            },
+            {
+                pregunta: "4️⃣ ¿Cuánto sabes de nutrición y macros?",
+                opciones: [
+                    { texto: "Nada, como lo que pillo", puntos: 1 },
+                    { texto: "Lo básico: que la proteína da músculo", puntos: 2 },
+                    { texto: "Calculo mis macros y calorías", puntos: 3 },
+                    { texto: "Los ajusto según fase (vol/def) y momento", puntos: 4 }
+                ]
+            },
+            {
+                pregunta: "5️⃣ ¿Cuántos días entrenas a la semana?",
+                opciones: [
+                    { texto: "1 o 2 días", puntos: 1 },
+                    { texto: "3 días", puntos: 2 },
+                    { texto: "4 o 5 días", puntos: 3 },
+                    { texto: "6 o 7 días", puntos: 4 }
+                ]
+            },
+            {
+                pregunta: "6️⃣ ¿Apuntas tus pesos y repeticiones?",
+                opciones: [
+                    { texto: "No, voy a ojo", puntos: 1 },
+                    { texto: "A veces, mentalmente", puntos: 2 },
+                    { texto: "Sí, en una app o libreta", puntos: 3 },
+                    { texto: "Sí, y aplico sobrecarga progresiva semanal", puntos: 4 }
+                ]
+            }
+        ];
+
+        let preguntaActual = 0;
+        let puntuacionTotal = 0;
+
+        function iniciarTest() {
+            preguntaActual = 0;
+            puntuacionTotal = 0;
+            mostrarPregunta();
+        }
+
+        function mostrarPregunta() {
+            const contenedor = document.getElementById('testContenido');
+            const progreso = document.getElementById('testProgress');
+
+            if (preguntaActual >= preguntasTest.length) {
+                mostrarResultado();
+                return;
+            }
+
+            progreso.style.width = ((preguntaActual / preguntasTest.length) * 100) + '%';
+
+            const p = preguntasTest[preguntaActual];
+            let html = `<div class="test-card">
+        <div class="test-pregunta">${p.pregunta}</div>`;
+
+            p.opciones.forEach((opcion, i) => {
+                html += `<button class="test-opcion" onclick="responder(${opcion.puntos})">${opcion.texto}</button>`;
+            });
+
+            html += `<p style="color: #888; margin-top: 20px; text-align: center;">Pregunta ${preguntaActual + 1} de ${preguntasTest.length}</p></div>`;
+            contenedor.innerHTML = html;
+        }
+
+        function responder(puntos) {
+            puntuacionTotal += puntos;
+            preguntaActual++;
+            mostrarPregunta();
+        }
+
+        function mostrarResultado() {
+            document.getElementById('testProgress').style.width = '100%';
+            let nivel, clase, emoji, descripcion, consejos;
+
+            if (puntuacionTotal <= 10) {
+                nivel = "PRINCIPIANTE";
+                clase = "nivel-principiante";
+                emoji = "🌱";
+                descripcion = "Estás empezando, ¡bienvenido al mejor camino!";
+                consejos = [
+                    "Céntrate en aprender la técnica de los básicos: sentadilla, press banca, peso muerto, dominadas",
+                    "Entrena 3 días a la semana con full body",
+                    "Come al menos 1.6g de proteína por kg de peso",
+                    "Duerme mínimo 7-8 horas al día",
+                    "No necesitas suplementos todavía, solo creatina si quieres"
+                ];
+            } else if (puntuacionTotal <= 17) {
+                nivel = "INTERMEDIO";
+                clase = "nivel-intermedio";
+                emoji = "💪";
+                descripcion = "Llevas un buen camino, toca refinar detalles";
+                consejos = [
+                    "Empieza con sobrecarga progresiva semanal (apunta pesos)",
+                    "Pasa a un split tipo PPL o torso/pierna",
+                    "Calcula tus macros con precisión",
+                    "Añade ejercicios accesorios para puntos débiles",
+                    "Empieza a entender RIR y RPE"
+                ];
+            } else {
+                nivel = "AVANZADO";
+                clase = "nivel-avanzado";
+                emoji = "🔥";
+                descripcion = "Eres veterano, ahora toca optimizar al máximo";
+                consejos = [
+                    "Implementa periodización (volumen, fuerza, descarga)",
+                    "Ajusta macros según fase: volumen, definición o mantenimiento",
+                    "Cuida la recuperación: sueño, estrés, descargas cada 6-8 semanas",
+                    "Trabaja debilidades específicas con técnicas avanzadas (drop sets, rest pause)",
+                    "Considera estudiar más sobre fisiología y biomecánica"
+                ];
+            }
+
+            let html = `<div class="test-resultado">
+        <h2 class="${clase}">${emoji} ${nivel}</h2>
+        <p style="font-size: 22px; margin-bottom: 30px;">${descripcion}</p>
+        <p style="color: #fbbf24; font-size: 20px;">Puntuación: ${puntuacionTotal}/24</p>
+        <h3 style="margin-top: 40px; color: white;">📋 CONSEJOS PARA TI:</h3>
+        <ul style="text-align: left; max-width: 600px; margin: 20px auto; line-height: 2; color: #ccc;">`;
+
+            consejos.forEach(c => {
+                html += `<li>${c}</li>`;
+            });
+
+            html += `</ul>
+        <button class="btn-compromiso" onclick="iniciarTest()" style="margin-top: 30px;">🔄 Repetir test</button>
+    </div>`;
+
+            document.getElementById('testContenido').innerHTML = html;
+        }
+
+        // Iniciar test al cargar la página
+        iniciarTest();
+
+
+        // ============================================
+        // FAQ TOGGLE
+        // ============================================
+        function toggleFAQ(elemento) {
+            const item = elemento.parentElement;
+            item.classList.toggle('activo');
+        }
+
+
+        // ============================================
+        // GLOSARIO
+        // ============================================
+        const glosario = [
+            { termino: "1RM", definicion: "Repetición Máxima. El peso máximo que puedes levantar UNA sola vez con buena técnica." },
+            { termino: "AMRAP", definicion: "As Many Reps As Possible. Hacer todas las reps que puedas en un tiempo o serie." },
+            { termino: "BCAA", definicion: "Aminoácidos Ramificados (Leucina, Isoleucina, Valina). Suplemento muy sobrevalorado si comes proteína suficiente." },
+            { termino: "Bulking", definicion: "Fase de volumen. Comer en superávit calórico para ganar masa muscular." },
+            { termino: "Cardio", definicion: "Ejercicio aeróbico que eleva el ritmo cardíaco. Ejemplos: correr, bici, elíptica." },
+            { termino: "Cutting", definicion: "Fase de definición. Comer en déficit calórico para perder grasa manteniendo músculo." },
+            { termino: "Drop set", definicion: "Tras llegar al fallo, bajas el peso un 20-30% y sigues sin descanso." },
+            { termino: "EMOM", definicion: "Every Minute On the Minute. Empiezas un ejercicio cada minuto exacto." },
+            { termino: "Fail / Fallo muscular", definicion: "Punto en el que no puedes hacer ni una rep más con buena técnica." },
+            { termino: "Full body", definicion: "Rutina donde entrenas TODO el cuerpo en cada sesión. Ideal para principiantes." },
+            { termino: "Hipertrofia", definicion: "Crecimiento muscular. Aumento del tamaño de las fibras musculares." },
+            { termino: "Macros", definicion: "Macronutrientes: proteína, carbohidratos y grasas. Las 3 fuentes de calorías." },
+            { termino: "PR (Personal Record)", definicion: "Récord personal. El peso más alto que has movido en un ejercicio." },
+            { termino: "PPL", definicion: "Push/Pull/Legs. Split donde divides empuje, tirón y pierna. Rutina muy popular." },
+            { termino: "Rest pause", definicion: "Tras fallo, descansas 10-15 segundos y sacas más reps con el mismo peso." },
+            { termino: "RIR", definicion: "Reps In Reserve. Repeticiones que te dejas sin hacer antes del fallo. Ej: RIR 2 = paras a 2 reps del fallo." },
+            { termino: "RM", definicion: "Repetición Máxima. Lo mismo que 1RM. Tu peso máximo." },
+            { termino: "RPE", definicion: "Rate of Perceived Exertion. Escala del 1 al 10 de cómo de duro fue una serie. RPE 10 = al fallo." },
+            { termino: "Split", definicion: "División de los grupos musculares por día. Ej: lunes pecho, martes espalda..." },
+            { termino: "Superserie", definicion: "Hacer 2 ejercicios seguidos sin descanso entre ellos." },
+            { termino: "TUT", definicion: "Time Under Tension. Tiempo que tu músculo está bajo tensión durante una serie." },
+            { termino: "Volumen", definicion: "Total de trabajo realizado. Se calcula: series × reps × peso." },
+            { termino: "Warm up", definicion: "Calentamiento. Series previas con poco peso para activar el músculo." },
+            { termino: "Whey", definicion: "Proteína de suero de leche. El suplemento de proteína más común y rápido de absorber." }
+        ];
+
+        function renderizarGlosario(filtro = "") {
+            const grid = document.getElementById('glosarioGrid');
+            const terminosFiltrados = glosario.filter(item =>
+                item.termino.toLowerCase().includes(filtro.toLowerCase()) ||
+                item.definicion.toLowerCase().includes(filtro.toLowerCase())
+            );
+
+            if (terminosFiltrados.length === 0) {
+                grid.innerHTML = '<div class="sin-resultados-glosario">🔍 No se encontraron términos para "' + filtro + '"</div>';
+                return;
+            }
+
+            grid.innerHTML = "";
+            terminosFiltrados.forEach(item => {
+                grid.innerHTML += `<div class="glosario-item">
+            <div class="glosario-termino">${item.termino}</div>
+            <div class="glosario-definicion">${item.definicion}</div>
+        </div>`;
+            });
+        }
+
+        function filtrarGlosario() {
+            const buscador = document.getElementById('glosarioBuscador').value;
+            renderizarGlosario(buscador);
+        }
+
+        // Renderizar glosario al cargar
+        renderizarGlosario();
+
+
+        // ============================================
+        // COMPROMISO FITNESS
+        // ============================================
+        function guardarCompromiso() {
+            const texto = document.getElementById('compromisoInput').value.trim();
+            if (!texto) {
+                alert('⚠️ Escribe tu compromiso antes de guardar');
+                return;
+            }
+
+            const compromiso = {
+                texto: texto,
+                fecha: new Date().toLocaleString('es-ES')
+            };
+
+            localStorage.setItem('compromisoFitness', JSON.stringify(compromiso));
+            mostrarCompromiso();
+            document.getElementById('compromisoInput').value = '';
+        }
+
+        function mostrarCompromiso() {
+            const guardado = localStorage.getItem('compromisoFitness');
+            if (!guardado) return;
+
+            try {
+                const compromiso = JSON.parse(guardado);
+                document.getElementById('compromisoActual').style.display = 'block';
+                document.getElementById('compromisoTexto').textContent = '"' + compromiso.texto + '"';
+                document.getElementById('compromisoFecha').textContent = '📅 Guardado el ' + compromiso.fecha;
+            } catch (e) {
+                console.error('Error al cargar compromiso:', e);
+            }
+        }
+
+        function borrarCompromiso() {
+            if (confirm('¿Seguro que quieres borrar tu compromiso actual?')) {
+                localStorage.removeItem('compromisoFitness');
+                document.getElementById('compromisoActual').style.display = 'none';
+            }
+        }
+
+        // Mostrar compromiso al cargar
+        mostrarCompromiso();
     </script>
 
 
