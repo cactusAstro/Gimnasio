@@ -1363,6 +1363,593 @@
                 transform: translate(-2px, -2px);
             }
         }
+
+        /* ============================================ */
+        /* TIENDA */
+        /* ============================================ */
+        .seccion-tienda {
+            background: linear-gradient(135deg, #1a1a1a, #2a0000);
+            padding: 60px 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            color: white;
+            border: 3px solid white;
+        }
+
+        .producto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .producto-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+            text-align: center;
+            position: relative;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-8px);
+            border-color: #fbbf24;
+            box-shadow: 0 10px 40px rgba(251, 191, 36, 0.4);
+        }
+
+        .producto-card.oferta::before {
+            content: 'OFERTA 🔥';
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .producto-emoji {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .producto-nombre {
+            color: #fbbf24;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .producto-descripcion {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .producto-precio {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .producto-precio-antes {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .btn-anadir-carrito {
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .btn-anadir-carrito:hover {
+            background: linear-gradient(135deg, #b91c1c, #ef4444);
+            transform: scale(1.05);
+        }
+
+        /* CARRITO FLOTANTE */
+        .carrito-flotante {
+            position: fixed;
+            bottom: 240px;
+            right: 30px;
+            background: linear-gradient(135deg, #fbbf24, #ef4444);
+            color: white;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            z-index: 1000;
+            border: 3px solid white;
+            transition: 0.3s;
+        }
+
+        .carrito-flotante:hover {
+            transform: scale(1.1);
+        }
+
+        .carrito-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        /* MODAL DEL CARRITO */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.activo {
+            display: flex;
+        }
+
+        .modal-contenido {
+            background: linear-gradient(135deg, #1a1a1a, #2a0000);
+            border: 3px solid #fbbf24;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 550px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            color: white;
+            position: relative;
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 0, 0, 0.2);
+            color: white;
+            border: 2px solid red;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .item-carrito {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .item-carrito-emoji {
+            font-size: 30px;
+            margin-right: 15px;
+        }
+
+        .item-carrito-info {
+            flex: 1;
+        }
+
+        .item-carrito-nombre {
+            font-weight: bold;
+            color: #fbbf24;
+            font-size: 15px;
+        }
+
+        .item-carrito-precio {
+            color: #ccc;
+            font-size: 13px;
+        }
+
+        .btn-eliminar {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff6666;
+            border: 1px solid red;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .total-carrito {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #fbbf24;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .total-carrito span:last-child {
+            color: #fbbf24;
+        }
+
+        .opciones-pago {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-pago {
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-pago-bizum {
+            background: linear-gradient(135deg, #00d4ff, #0080ff);
+        }
+
+        .btn-pago-paypal {
+            background: linear-gradient(135deg, #003087, #009cde);
+        }
+
+        .btn-pago-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .btn-pago:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .carrito-vacio {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 18px;
+        }
+
+        /* ============================================ */
+        /* CALCULADORAS PRO */
+        /* ============================================ */
+        .seccion-calculadoras {
+            background: linear-gradient(135deg, #2a0000, #1a1a1a);
+            padding: 60px 30px;
+            margin: 40px auto;
+            max-width: 1100px;
+            border-radius: 20px;
+            color: white;
+            border: 3px solid white;
+        }
+
+        .tabs-calculadoras {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ccc;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            font-family: inherit;
+        }
+
+        .tab-btn.activo {
+            background: linear-gradient(135deg, #fbbf24, #ef4444);
+            color: white;
+            border-color: white;
+        }
+
+        .tab-contenido {
+            display: none;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .tab-contenido.activo {
+            display: block;
+        }
+
+        .calc-label {
+            display: block;
+            color: #fbbf24;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .calc-input,
+        .calc-select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        .calc-resultado {
+            background: linear-gradient(135deg, #fbbf24, #ef4444);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .calc-resultado h3 {
+            font-size: 42px;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .calc-resultado p {
+            margin: 5px 0;
+        }
+
+        .macros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .macro-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .macro-valor {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        .macro-nombre {
+            color: #ccc;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .calc-discos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+        }
+
+        .disco {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            border: 3px solid white;
+        }
+
+        .disco-25 {
+            width: 70px;
+            height: 70px;
+            background: #ef4444;
+            font-size: 16px;
+        }
+
+        .disco-20 {
+            width: 65px;
+            height: 65px;
+            background: #3b82f6;
+            font-size: 15px;
+        }
+
+        .disco-15 {
+            width: 58px;
+            height: 58px;
+            background: #fbbf24;
+            color: black;
+            font-size: 14px;
+        }
+
+        .disco-10 {
+            width: 52px;
+            height: 52px;
+            background: #22c55e;
+            font-size: 13px;
+        }
+
+        .disco-5 {
+            width: 45px;
+            height: 45px;
+            background: white;
+            color: black;
+            font-size: 12px;
+        }
+
+        .disco-2-5 {
+            width: 38px;
+            height: 38px;
+            background: #888;
+            font-size: 10px;
+        }
+
+        .disco-1-25 {
+            width: 32px;
+            height: 32px;
+            background: #444;
+            font-size: 9px;
+        }
+
+        .disco-barra {
+            width: 200px;
+            height: 12px;
+            background: #888;
+            border-radius: 6px;
+            margin: 0 10px;
+        }
+
+        /* MODAL DE PAGO BIZUM */
+        .modal-bizum {
+            text-align: center;
+        }
+
+        .bizum-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00d4ff, #0080ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .bizum-numero {
+            background: linear-gradient(135deg, #00d4ff, #0080ff);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: 0.3s;
+            user-select: all;
+            font-family: 'Courier New', monospace;
+        }
+
+        .bizum-numero:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(0, 212, 255, 0.6);
+        }
+
+        .bizum-pasos {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .bizum-paso {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .bizum-paso-num {
+            background: linear-gradient(135deg, #00d4ff, #0080ff);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .bizum-concepto {
+            background: rgba(251, 191, 36, 0.15);
+            border: 2px dashed #fbbf24;
+            color: #fbbf24;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+
+        .btn-confirmar-bizum {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn-confirmar-bizum:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 20px rgba(34, 197, 94, 0.4);
+        }
     </style>
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -1370,7 +1957,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Iván GYM">
-    <link rel="apple-touch-icon" href="golden's gym.png">
+    <link rel="apple-touch-icon" href="logo.jpeg">
 </head>
 
 <body>
@@ -1382,7 +1969,7 @@
     <nav class="navbar navbar-expand-lg navbar-brand sticky-top mx-auto">
         <div class="container-fluid">
             <a class="navbar-brand" style="color: white; font-weight: bold; font-size: 20px;" href="#">
-                <img src="golden's gym.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">Iván
+                <img src="./logo.jpeg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">Iván
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -4374,6 +4961,150 @@
     </section>
 
     <!-- ============================================ -->
+    <!-- TIENDA -->
+    <!-- ============================================ -->
+    <section class="seccion-tienda">
+        <h2 class="text-center" style="font-size: 42px; font-weight: bold;">🛒 TIENDA FITNESS</h2>
+        <p class="text-center" style="color: #fbbf24; font-size: 18px; margin-bottom: 10px;">
+            Productos digitales · Pagas y recibes en 24h por WhatsApp
+        </p>
+
+        <div class="producto-grid" id="productoGrid">
+            <!-- Los productos se generan con JavaScript -->
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- CALCULADORAS PRO -->
+    <!-- ============================================ -->
+    <section class="seccion-calculadoras">
+        <h2 class="text-center" style="font-size: 42px; font-weight: bold;">🧮 CALCULADORAS PRO</h2>
+        <p class="text-center" style="color: #fbbf24; font-size: 18px; margin-bottom: 10px;">
+            Herramientas que TODOS los gym bros necesitan
+        </p>
+
+        <div class="tabs-calculadoras">
+            <button class="tab-btn activo" onclick="cambiarTab('1rm')">💪 Calculadora 1RM</button>
+            <button class="tab-btn" onclick="cambiarTab('macros')">🧮 Macros</button>
+            <button class="tab-btn" onclick="cambiarTab('discos')">🏋️ Discos en barra</button>
+        </div>
+
+        <!-- 1RM -->
+        <div class="tab-contenido activo" id="tab-1rm">
+            <h3 style="color: #fbbf24; text-align: center; margin-bottom: 20px;">
+                💪 Calcula tu repetición máxima (1RM)
+            </h3>
+            <p style="color: #ccc; text-align: center; margin-bottom: 25px;">
+                El peso máximo que podrías levantar UNA sola vez según tus reps actuales
+            </p>
+
+            <label class="calc-label">Peso levantado (kg):</label>
+            <input type="number" class="calc-input" id="rm-peso" placeholder="80" oninput="calcular1RM()">
+
+            <label class="calc-label">Repeticiones realizadas:</label>
+            <input type="number" class="calc-input" id="rm-reps" placeholder="8" oninput="calcular1RM()">
+
+            <div class="calc-resultado" id="rm-resultado" style="display: none;">
+                <p style="font-size: 14px; opacity: 0.9;">Tu 1RM estimado es:</p>
+                <h3 id="rm-valor">0 kg</h3>
+                <p id="rm-desglose" style="font-size: 13px; margin-top: 10px;"></p>
+            </div>
+        </div>
+
+        <!-- MACROS -->
+        <div class="tab-contenido" id="tab-macros">
+            <h3 style="color: #fbbf24; text-align: center; margin-bottom: 20px;">
+                🥗 Calculadora de macros y calorías
+            </h3>
+            <p style="color: #ccc; text-align: center; margin-bottom: 25px;">
+                Fórmula Mifflin-St Jeor (la más precisa)
+            </p>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="calc-label">Peso (kg):</label>
+                    <input type="number" class="calc-input" id="m-peso" placeholder="75" oninput="calcularMacros()">
+
+                    <label class="calc-label">Altura (cm):</label>
+                    <input type="number" class="calc-input" id="m-altura" placeholder="175" oninput="calcularMacros()">
+
+                    <label class="calc-label">Edad:</label>
+                    <input type="number" class="calc-input" id="m-edad" placeholder="22" oninput="calcularMacros()">
+                </div>
+                <div class="col-md-6">
+                    <label class="calc-label">Sexo:</label>
+                    <select class="calc-select" id="m-sexo" onchange="calcularMacros()">
+                        <option value="h">Hombre</option>
+                        <option value="m">Mujer</option>
+                    </select>
+
+                    <label class="calc-label">Actividad:</label>
+                    <select class="calc-select" id="m-actividad" onchange="calcularMacros()">
+                        <option value="1.2">Sedentario</option>
+                        <option value="1.375">Ligero (1-3 días/sem)</option>
+                        <option value="1.55" selected>Moderado (3-5 días/sem)</option>
+                        <option value="1.725">Activo (6-7 días/sem)</option>
+                        <option value="1.9">Muy activo (2 veces/día)</option>
+                    </select>
+
+                    <label class="calc-label">Objetivo:</label>
+                    <select class="calc-select" id="m-objetivo" onchange="calcularMacros()">
+                        <option value="-500">Definir (-500 kcal)</option>
+                        <option value="0" selected>Mantener</option>
+                        <option value="500">Volumen (+500 kcal)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calc-resultado" id="m-resultado" style="display: none;">
+                <h3 id="m-calorias">0 kcal/día</h3>
+                <div class="macros-grid">
+                    <div class="macro-box">
+                        <div class="macro-valor" id="m-prote">0g</div>
+                        <div class="macro-nombre">PROTEÍNA</div>
+                    </div>
+                    <div class="macro-box">
+                        <div class="macro-valor" id="m-carbos">0g</div>
+                        <div class="macro-nombre">CARBOS</div>
+                    </div>
+                    <div class="macro-box">
+                        <div class="macro-valor" id="m-grasas">0g</div>
+                        <div class="macro-nombre">GRASAS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DISCOS -->
+        <div class="tab-contenido" id="tab-discos">
+            <h3 style="color: #fbbf24; text-align: center; margin-bottom: 20px;">
+                🏋️ Calculadora de discos en la barra
+            </h3>
+            <p style="color: #ccc; text-align: center; margin-bottom: 25px;">
+                Te dice EXACTAMENTE qué discos poner en cada lado
+            </p>
+
+            <label class="calc-label">Peso objetivo (kg):</label>
+            <input type="number" class="calc-input" id="d-peso" placeholder="100" oninput="calcularDiscos()">
+
+            <label class="calc-label">Peso de la barra (kg):</label>
+            <select class="calc-select" id="d-barra" onchange="calcularDiscos()">
+                <option value="20" selected>20 kg (olímpica estándar)</option>
+                <option value="15">15 kg (olímpica mujer)</option>
+                <option value="10">10 kg (barra técnica)</option>
+                <option value="7">7 kg (multipower)</option>
+            </select>
+
+            <div class="calc-resultado" id="d-resultado" style="display: none;">
+                <p id="d-mensaje">Configuración por lado:</p>
+                <div class="calc-discos" id="d-discos"></div>
+                <p id="d-detalle" style="margin-top: 15px; font-size: 14px;"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
     <!-- FOOTER COMPLETO CON REDES SOCIALES -->
     <!-- ============================================ -->
     <footer class="mt-5 p-4 text-center mx-auto"
@@ -4438,10 +5169,10 @@
 
     <div class="chat-ventana" id="chatVentana">
         <div class="chat-header">
-            <img src="golden's gym.png" alt="Iván"
+            <img src="./logo.jpeg" alt="Iván"
                 onerror="this.src='https://ui-avatars.com/api/?name=Ivan&background=ff0000&color=fff'">
             <div class="chat-header-info">
-                <h5>Iván 💪</h5>
+                <h5>ATR10</h5>
                 <p>● En línea</p>
             </div>
             <button class="chat-cerrar" onclick="abrirChat()">×</button>
@@ -4449,10 +5180,10 @@
 
         <div class="chat-mensajes" id="chatMensajes">
             <div class="mensaje mensaje-iva">
-                ¡Hola! 👋 Soy Iván.<br>¿En qué puedo ayudarte? 💪
+                ¡Hola! 👋 Soy Iván.<br>¿En qué puedo ayudarte? 🫪
             </div>
             <div class="mensaje mensaje-iva">
-                Pregúntame sobre rutinas, suplementos, dieta o cualquier duda del gym.
+                Pregúntame sobre rutinas, suplementos, dieta o cualquier duda del ignacio.
             </div>
         </div>
 
@@ -5277,6 +6008,448 @@ También: 2 variantes si tengo
         console.log('%c🥚 ¡EASTER EGGS OCULTOS! 🥚', 'background:linear-gradient(135deg,#ff0000,#fbbf24);color:white;font-size:24px;padding:10px 20px;border-radius:10px;font-weight:bold;');
         console.log('%cSi llegaste hasta aquí, eres de los curiosos. Hay 6 easter eggs escondidos. ¿Encontrarás todos?', 'color:#fbbf24;font-size:14px;');
         console.log('%cPista: prueba a escribir cosas en la web sin estar en ningún cuadro de texto...', 'color:#888;font-style:italic;');
+
+        // ============================================
+        // PRODUCTOS DE LA TIENDA
+        // ============================================
+        const productos = [
+            {
+                id: 1,
+                emoji: '📋',
+                nombre: 'Rutina PPL 12 semanas',
+                descripcion: 'Push/Pull/Legs completa. Incluye periodización y tablas para apuntar pesos.',
+                precio: 29.99,
+                oferta: false
+            },
+            {
+                id: 2,
+                emoji: '🥗',
+                nombre: 'Plan de Dieta Personalizado',
+                descripcion: 'Calculo tus macros y te hago menús para 4 semanas. Lista de la compra incluida.',
+                precio: 39.99,
+                oferta: false
+            },
+            {
+                id: 3,
+                emoji: '🎯',
+                nombre: 'Pack Rutina + Dieta',
+                descripcion: 'La combinación definitiva. Rutina + dieta + soporte WhatsApp 30 días.',
+                precio: 59.99,
+                precioAntes: 79.99,
+                oferta: true
+            },
+            {
+                id: 4,
+                emoji: '📞',
+                nombre: 'Consulta 1-a-1 (30 min)',
+                descripcion: 'Videollamada conmigo. Te reviso tu rutina, dieta y resuelvo dudas.',
+                precio: 49.99,
+                oferta: false
+            },
+            {
+                id: 5,
+                emoji: '🔥',
+                nombre: 'Rutina Definición',
+                descripcion: 'Rutina específica para perder grasa manteniendo músculo. 8 semanas.',
+                precio: 19.99,
+                oferta: false
+            },
+            {
+                id: 6,
+                emoji: '👑',
+                nombre: 'Asesoramiento mensual',
+                descripcion: 'Te superviso TODO. Cambios semanales de rutina, dieta ajustada, soporte ilimitado.',
+                precio: 79.99,
+                oferta: false
+            }
+        ];
+
+        // CARRITO con localStorage
+        let carrito = JSON.parse(localStorage.getItem('carritoGym') || '[]');
+
+        function renderizarProductos() {
+            const grid = document.getElementById('productoGrid');
+            grid.innerHTML = productos.map(p => `
+        <div class="producto-card ${p.oferta ? 'oferta' : ''}">
+            <span class="producto-emoji">${p.emoji}</span>
+            <div class="producto-nombre">${p.nombre}</div>
+            <p class="producto-descripcion">${p.descripcion}</p>
+            <div class="producto-precio">
+                ${p.precioAntes ? `<span class="producto-precio-antes">${p.precioAntes}€</span>` : ''}
+                ${p.precio}€
+            </div>
+            <button class="btn-anadir-carrito" onclick="anadirAlCarrito(${p.id})">
+                🛒 AÑADIR AL CARRITO
+            </button>
+        </div>
+    `).join('');
+        }
+
+        function anadirAlCarrito(id) {
+            const producto = productos.find(p => p.id === id);
+            carrito.push(producto);
+            localStorage.setItem('carritoGym', JSON.stringify(carrito));
+            actualizarBadge();
+
+            // Feedback visual
+            const btn = event.target;
+            const textoOriginal = btn.innerHTML;
+            btn.innerHTML = '✅ ¡AÑADIDO!';
+            btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+            setTimeout(() => {
+                btn.innerHTML = textoOriginal;
+                btn.style.background = '';
+            }, 1500);
+
+            // Confetti pequeño si tienes la función
+            if (typeof lanzarConfetti === 'function') lanzarConfetti(30);
+        }
+
+        function actualizarBadge() {
+            document.getElementById('carritoBadge').textContent = carrito.length;
+        }
+
+        function abrirCarrito() {
+            document.getElementById('modalCarrito').classList.add('activo');
+            renderizarCarrito();
+        }
+
+        function cerrarCarrito() {
+            document.getElementById('modalCarrito').classList.remove('activo');
+        }
+
+        function renderizarCarrito() {
+            const contenido = document.getElementById('contenidoCarrito');
+
+            if (carrito.length === 0) {
+                contenido.innerHTML = `
+            <div class="carrito-vacio">
+                🛒 Tu carrito está vacío<br>
+                <small>Añade productos de la tienda</small>
+            </div>
+        `;
+                return;
+            }
+
+            const total = carrito.reduce((sum, p) => sum + p.precio, 0);
+            const items = carrito.map((p, i) => `
+        <div class="item-carrito">
+            <span class="item-carrito-emoji">${p.emoji}</span>
+            <div class="item-carrito-info">
+                <div class="item-carrito-nombre">${p.nombre}</div>
+                <div class="item-carrito-precio">${p.precio.toFixed(2)}€</div>
+            </div>
+            <button class="btn-eliminar" onclick="eliminarDelCarrito(${i})">✕</button>
+        </div>
+    `).join('');
+
+            contenido.innerHTML = `
+        ${items}
+        <div class="total-carrito">
+            <span>TOTAL:</span>
+            <span>${total.toFixed(2)}€</span>
+        </div>
+        <div class="opciones-pago">
+            <p style="text-align: center; color: #fbbf24; font-weight: bold; margin: 10px 0;">
+                💳 Elige cómo pagar:
+            </p>
+            <button class="btn-pago btn-pago-bizum" onclick="pagarBizum(${total})">
+                💚 Pagar con Bizum
+            </button>
+            <button class="btn-pago btn-pago-paypal" onclick="pagarPayPal(${total})">
+                💙 Pagar con PayPal
+            </button>
+            <button class="btn-pago btn-pago-whatsapp" onclick="pagarWhatsApp(${total})">
+                📲 Pagar por WhatsApp (recomendado)
+            </button>
+            <p style="text-align: center; color: #888; font-size: 12px; margin-top: 10px;">
+                ⚠️ Tras el pago, recibirás los archivos en 24h por WhatsApp
+            </p>
+        </div>
+    `;
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            localStorage.setItem('carritoGym', JSON.stringify(carrito));
+            actualizarBadge();
+            renderizarCarrito();
+        }
+
+        // ============================================
+        // MÉTODOS DE PAGO (abren las apps con datos)
+        // ============================================
+        function generarResumenPedido() {
+            const total = carrito.reduce((sum, p) => sum + p.precio, 0);
+            const lineas = carrito.map(p => `• ${p.nombre} - ${p.precio.toFixed(2)}€`).join('\n');
+            return { total, lineas };
+        }
+
+        // ============================================
+        // BIZUM CON MODAL PROFESIONAL
+        // ============================================
+        function pagarBizum(total) {
+            const { lineas } = generarResumenPedido();
+            const conceptoUnico = 'IVANGYM-' + Date.now().toString().slice(-5);
+
+            // Cerrar modal del carrito
+            cerrarCarrito();
+
+            // Crear modal de Bizum
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay activo';
+            modal.id = 'modalBizum';
+            modal.innerHTML = `
+        <div class="modal-contenido modal-bizum">
+            <button class="modal-cerrar" onclick="cerrarBizum()">✕</button>
+
+            <div class="bizum-logo">💚</div>
+            <h2 style="color: #fbbf24; margin-bottom: 10px;">Pago con Bizum</h2>
+            <p style="color: #ccc; font-size: 14px;">Total a pagar:</p>
+            <h1 style="color: white; font-size: 42px; margin: 10px 0;">${total.toFixed(2)}€</h1>
+
+            <p style="color: #ccc; margin-bottom: 5px;">Envía Bizum a este número:</p>
+            <div class="bizum-numero" onclick="copiarBizum()" title="Click para copiar">
+                635 81 65 02
+            </div>
+            <p style="color: #888; font-size: 12px;">📋 Click para copiar el número</p>
+
+            <div class="bizum-pasos">
+                <div class="bizum-paso">
+                    <div class="bizum-paso-num">1</div>
+                    <div>Abre la app de tu banco</div>
+                </div>
+                <div class="bizum-paso">
+                    <div class="bizum-paso-num">2</div>
+                    <div>Entra en <strong>Bizum</strong> → Enviar dinero</div>
+                </div>
+                <div class="bizum-paso">
+                    <div class="bizum-paso-num">3</div>
+                    <div>Introduce el número <strong>635 81 65 02</strong></div>
+                </div>
+                <div class="bizum-paso">
+                    <div class="bizum-paso-num">4</div>
+                    <div>Importe: <strong>${total.toFixed(2)}€</strong></div>
+                </div>
+                <div class="bizum-paso">
+                    <div class="bizum-paso-num">5</div>
+                    <div>Pon este concepto:</div>
+                </div>
+            </div>
+
+            <div class="bizum-concepto">
+                📌 ${conceptoUnico}
+            </div>
+
+            <p style="color: #888; font-size: 13px; line-height: 1.5;">
+                ⚠️ <strong>IMPORTANTE:</strong> Usa exactamente ese concepto.<br>
+                Así sé que el pago es tuyo y te mando los archivos rápido.
+            </p>
+
+            <button class="btn-confirmar-bizum" onclick="confirmarBizum(${total}, '${conceptoUnico}')">
+                ✅ YA HE HECHO EL BIZUM
+            </button>
+
+            <p style="color: #666; font-size: 11px; margin-top: 15px;">
+                Tras confirmar, se abrirá WhatsApp para enviarme el justificante.<br>
+                Recibirás los archivos en menos de 24h. 🚀
+            </p>
+        </div>
+    `;
+            document.body.appendChild(modal);
+        }
+
+        function copiarBizum() {
+            navigator.clipboard.writeText('635816502').then(() => {
+                const elem = document.querySelector('.bizum-numero');
+                const original = elem.textContent;
+                elem.textContent = '✅ ¡COPIADO!';
+                elem.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                setTimeout(() => {
+                    elem.textContent = original;
+                    elem.style.background = '';
+                }, 1500);
+            });
+        }
+
+        function cerrarBizum() {
+            const modal = document.getElementById('modalBizum');
+            if (modal) modal.remove();
+        }
+
+        function confirmarBizum(total, concepto) {
+            const { lineas } = generarResumenPedido();
+            const mensaje = `✅ BIZUM ENVIADO\n\n📋 Pedido:\n${lineas}\n\n💰 Total: ${total.toFixed(2)}€\n📌 Concepto Bizum: ${concepto}\n\nMi nombre: ___________\nMi email: ___________\n\n¡Espero la confirmación y los archivos!`;
+
+            const url = `https://wa.me/34635816502?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+
+            cerrarBizum();
+
+            // Vaciar carrito tras pagar
+            carrito = [];
+            localStorage.setItem('carritoGym', JSON.stringify(carrito));
+            actualizarBadge();
+
+            // Confetti si tienes la función
+            if (typeof lanzarConfetti === 'function') lanzarConfetti(150);
+        }
+
+        function pagarPayPal(total) {
+            const { lineas } = generarResumenPedido();
+            // ⚠️ CAMBIA "ivanib2007" por tu usuario PayPal real si lo tienes
+            const usuarioPayPal = 'ivanib2007';
+            const url = `https://www.paypal.me/${usuarioPayPal}/${total.toFixed(2)}EUR`;
+            window.open(url, '_blank');
+
+            const mensaje = `🛒 NUEVO PEDIDO (PayPal)\n\n${lineas}\n\n💰 TOTAL: ${total.toFixed(2)}€\n\nHe pagado por PayPal ✅\n\nMi nombre es: ___________\nMi email: ___________`;
+            setTimeout(() => {
+                const urlWA = `https://wa.me/34635816502?text=${encodeURIComponent(mensaje)}`;
+                window.open(urlWA, '_blank');
+            }, 1500);
+        }
+
+        function pagarWhatsApp(total) {
+            const { lineas } = generarResumenPedido();
+            const mensaje = `🛒 NUEVO PEDIDO\n\n${lineas}\n\n💰 TOTAL: ${total.toFixed(2)}€\n\n¿Cómo procedo con el pago?`;
+            const url = `https://wa.me/34635816502?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+
+        // ============================================
+        // CALCULADORAS PRO
+        // ============================================
+        function cambiarTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('activo'));
+            document.querySelectorAll('.tab-contenido').forEach(c => c.classList.remove('activo'));
+            event.target.classList.add('activo');
+            document.getElementById('tab-' + tabId).classList.add('activo');
+        }
+
+        // 1RM - Fórmula de Epley
+        function calcular1RM() {
+            const peso = parseFloat(document.getElementById('rm-peso').value);
+            const reps = parseFloat(document.getElementById('rm-reps').value);
+
+            if (!peso || !reps || reps < 1) {
+                document.getElementById('rm-resultado').style.display = 'none';
+                return;
+            }
+
+            const rm = peso * (1 + reps / 30);
+            const rm95 = rm * 0.95;
+            const rm90 = rm * 0.90;
+            const rm80 = rm * 0.80;
+
+            document.getElementById('rm-valor').textContent = rm.toFixed(1) + ' kg';
+            document.getElementById('rm-desglose').innerHTML = `
+        📊 <strong>Pesos recomendados:</strong><br>
+        • 95% (3 reps): <strong>${rm95.toFixed(1)} kg</strong><br>
+        • 90% (5 reps): <strong>${rm90.toFixed(1)} kg</strong><br>
+        • 80% (8 reps): <strong>${rm80.toFixed(1)} kg</strong>
+    `;
+            document.getElementById('rm-resultado').style.display = 'block';
+        }
+
+        // MACROS - Fórmula Mifflin-St Jeor
+        function calcularMacros() {
+            const peso = parseFloat(document.getElementById('m-peso').value);
+            const altura = parseFloat(document.getElementById('m-altura').value);
+            const edad = parseFloat(document.getElementById('m-edad').value);
+            const sexo = document.getElementById('m-sexo').value;
+            const actividad = parseFloat(document.getElementById('m-actividad').value);
+            const objetivo = parseFloat(document.getElementById('m-objetivo').value);
+
+            if (!peso || !altura || !edad) {
+                document.getElementById('m-resultado').style.display = 'none';
+                return;
+            }
+
+            // TMB Mifflin-St Jeor
+            let tmb;
+            if (sexo === 'h') {
+                tmb = 10 * peso + 6.25 * altura - 5 * edad + 5;
+            } else {
+                tmb = 10 * peso + 6.25 * altura - 5 * edad - 161;
+            }
+
+            const calorias = Math.round(tmb * actividad + objetivo);
+            const proteina = Math.round(peso * 2);            // 2g/kg
+            const grasas = Math.round(calorias * 0.25 / 9);   // 25% calorías de grasa
+            const carbos = Math.round((calorias - proteina * 4 - grasas * 9) / 4);
+
+            document.getElementById('m-calorias').textContent = calorias + ' kcal/día';
+            document.getElementById('m-prote').textContent = proteina + 'g';
+            document.getElementById('m-carbos').textContent = carbos + 'g';
+            document.getElementById('m-grasas').textContent = grasas + 'g';
+            document.getElementById('m-resultado').style.display = 'block';
+        }
+
+        // DISCOS - Calculadora de discos por lado
+        function calcularDiscos() {
+            const pesoObjetivo = parseFloat(document.getElementById('d-peso').value);
+            const pesoBarra = parseFloat(document.getElementById('d-barra').value);
+
+            if (!pesoObjetivo || pesoObjetivo < pesoBarra) {
+                document.getElementById('d-resultado').style.display = 'none';
+                return;
+            }
+
+            const pesoPorLado = (pesoObjetivo - pesoBarra) / 2;
+            const discosDisponibles = [25, 20, 15, 10, 5, 2.5, 1.25];
+            let restante = pesoPorLado;
+            const discosUsados = {};
+
+            for (const disco of discosDisponibles) {
+                while (restante >= disco - 0.01) {
+                    restante -= disco;
+                    discosUsados[disco] = (discosUsados[disco] || 0) + 1;
+                }
+            }
+
+            // Renderizar discos visuales
+            let htmlDiscos = '';
+            discosDisponibles.forEach(disco => {
+                const count = discosUsados[disco] || 0;
+                for (let i = 0; i < count; i++) {
+                    const claseDisco = 'disco-' + disco.toString().replace('.', '-');
+                    htmlDiscos += `<div class="disco ${claseDisco}">${disco}</div>`;
+                }
+            });
+
+            // Barra central
+            htmlDiscos += '<div class="disco-barra"></div>';
+
+            // Mismo set al otro lado
+            discosDisponibles.slice().reverse().forEach(disco => {
+                const count = discosUsados[disco] || 0;
+                for (let i = 0; i < count; i++) {
+                    const claseDisco = 'disco-' + disco.toString().replace('.', '-');
+                    htmlDiscos += `<div class="disco ${claseDisco}">${disco}</div>`;
+                }
+            });
+
+            document.getElementById('d-discos').innerHTML = htmlDiscos;
+
+            let detalle = '';
+            Object.keys(discosUsados).forEach(disco => {
+                const count = discosUsados[disco];
+                const par = count * 2;
+                detalle += `${par} × ${disco}kg `;
+            });
+
+            const error = restante > 0.01 ? `<br>⚠️ Sobran ${restante.toFixed(2)} kg (no se puede llegar exacto)` : '';
+
+            document.getElementById('d-detalle').innerHTML = `
+        <strong>Total por lado:</strong> ${pesoPorLado.toFixed(2)} kg<br>
+        <strong>Discos necesarios:</strong> ${detalle}${error}
+    `;
+            document.getElementById('d-resultado').style.display = 'block';
+        }
+
+        // Inicializar al cargar
+        renderizarProductos();
+        actualizarBadge();
     </script>
 
     <!-- ============================================ -->
@@ -5287,26 +6460,33 @@ También: 2 variantes si tengo
         src="data:image/jpeg;base64,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"
         alt="Patricio">
 
-    <img id="easter-bob" class="easter-egg"
-        src=""
-        alt="Bob Esponja">
+    <img id="easter-bob" class="easter-egg" src="" alt="Bob Esponja">
 
-    <img id="easter-calamardo" class="easter-egg"
-        src=""
-        alt="Calamardo">
+    <img id="easter-calamardo" class="easter-egg" src="" alt="Calamardo">
 
-    <img id="easter-arnold" class="easter-egg"
-        src=""
-        alt="Arnold">
+    <img id="easter-arnold" class="easter-egg" src="" alt="Arnold">
 
-    <img id="easter-cangrejo" class="easter-egg"
-        src=""
-        alt="Don Cangrejo">
+    <img id="easter-cangrejo" class="easter-egg" src="" alt="Don Cangrejo">
 
     <div class="easter-mensaje" id="easter-mensaje">Texto aquí</div>
 
     <div class="easter-badge" id="easter-badge">🥚 Easter egg encontrado!</div>
 
+
+    <!-- CARRITO FLOTANTE -->
+    <div class="carrito-flotante" onclick="abrirCarrito()" title="Ver carrito">
+        🛒
+        <span class="carrito-badge" id="carritoBadge">0</span>
+    </div>
+
+    <!-- MODAL DEL CARRITO -->
+    <div class="modal-overlay" id="modalCarrito">
+        <div class="modal-contenido">
+            <button class="modal-cerrar" onclick="cerrarCarrito()">✕</button>
+            <h2 style="color: #fbbf24; margin-bottom: 20px;">🛒 Tu carrito</h2>
+            <div id="contenidoCarrito"></div>
+        </div>
+    </div>
 </body>
 
 </html>
