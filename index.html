@@ -1968,8 +1968,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-brand sticky-top mx-auto">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color: white; font-weight: bold; font-size: 20px; " href="#">
-                <img src="./logo.jpeg" alt="Logo" width="30" height="24" style="border-radius: 50%;" class="d-inline-block align-text-top">ATR-GYM
+            <a class="navbar-brand" style="color: white; font-weight: bold; font-size: 20px;" href="#">
+                <img src="./logo.jpeg" alt="Logo" width="30" height="24" style="border-radius: 50%;"
+                    class="d-inline-block align-text-top">ATR-GYM
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -5843,10 +5844,16 @@ También: 2 variantes si tengo
         // ============================================
         let clicksLogo = 0;
         const logoIvan = document.querySelector('.navbar-brand');
+
         if (logoIvan) {
-            logoIvan.addEventListener('click', (e) => {
-                e.preventDefault();
+            logoIvan.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+
                 clicksLogo++;
+
                 if (clicksLogo >= 10) {
                     activarEasterEgg('easter-calamardo', '🎺 ¡NO ME MOLESTES, ESTOY ENTRENANDO CLARINETE! 🎺', 'Calamardo');
                     clicksLogo = 0;
