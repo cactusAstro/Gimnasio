@@ -4784,6 +4784,909 @@
         </div>
     </section>
 
+    <!-- ============================================ -->
+    <!-- SECCIÓN 6: COMUNIDAD / FORO -->
+    <!-- ============================================ -->
+    <section class="seccion-comunidad">
+        <h2 class="titulo-seccion-comunidad">👥 COMUNIDAD · COMPARTE TU RUTINA</h2>
+        <p class="subtitulo-seccion-comunidad">Muéstrale a otros qué estás entrenando. Inspira y sé inspirado.</p>
+
+        <div class="comunidad-container">
+            <!-- CREAR POST -->
+            <div class="crear-post-card">
+                <h3>📝 Comparte tu rutina</h3>
+                <textarea class="post-input" id="postTitulo" placeholder="Título (ej: Mi rutina PPL)"></textarea>
+                <textarea class="post-input" id="postContenido" placeholder="Describe tu rutina, ejercicios, tips..."
+                    style="min-height: 120px;"></textarea>
+
+                <div class="post-tags">
+                    <label>
+                        <input type="checkbox" name="tag" value="ppl"> PPL
+                    </label>
+                    <label>
+                        <input type="checkbox" name="tag" value="torso-pierna"> Torso/Pierna
+                    </label>
+                    <label>
+                        <input type="checkbox" name="tag" value="fullbody"> Full Body
+                    </label>
+                    <label>
+                        <input type="checkbox" name="tag" value="definicion"> Definición
+                    </label>
+                    <label>
+                        <input type="checkbox" name="tag" value="volumen"> Volumen
+                    </label>
+                </div>
+
+                <button class="btn-publicar-post" onclick="publicarPost()">🚀 PUBLICAR RUTINA</button>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="filtros-comunidad">
+                <input type="text" class="filtro-buscar" id="filtroBuscar" placeholder="🔍 Buscar rutinas..."
+                    oninput="filtrarPosts()">
+                <select class="filtro-tag" id="filtroTag" onchange="filtrarPosts()">
+                    <option value="">Todos los tipos</option>
+                    <option value="ppl">PPL</option>
+                    <option value="torso-pierna">Torso/Pierna</option>
+                    <option value="fullbody">Full Body</option>
+                    <option value="definicion">Definición</option>
+                    <option value="volumen">Volumen</option>
+                </select>
+                <select class="filtro-orden" id="filtroOrden" onchange="filtrarPosts()">
+                    <option value="reciente">Más recientes</option>
+                    <option value="populares">Más populares</option>
+                    <option value="comentarios">Más comentados</option>
+                </select>
+            </div>
+
+            <!-- FEED DE POSTS -->
+            <div class="feed-posts" id="feedPosts">
+                <!-- Los posts se generan aquí con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN 8: FOTO CHECK-IN -->
+    <!-- ============================================ -->
+    <section class="seccion-checkin">
+        <h2 class="titulo-seccion-checkin">📸 FOTO CHECK-IN · MUESTRA TU ENTRENAMIENTO</h2>
+        <p class="subtitulo-seccion-checkin">Comparte fotos de tu sesión. El gym es más que números, es consistencia.
+        </p>
+
+        <div class="checkin-container">
+            <!-- SUBIR FOTO -->
+            <div class="subir-foto-card">
+                <div class="zona-subida" id="zonaSubida" onclick="document.getElementById('inputFoto').click()">
+                    <div class="icono-subida">📸</div>
+                    <p>Sube tu foto de entrenamiento</p>
+                    <small>Haz click o arrastra la foto</small>
+                </div>
+                <input type="file" id="inputFoto" accept="image/*" style="display:none" onchange="procesarFoto(event)">
+
+                <div class="formulario-checkin" id="formularioCheckin" style="display:none;">
+                    <img id="previewFoto" class="preview-foto" src="" alt="preview">
+
+                    <input type="text" class="checkin-input" id="checkinEjercicio"
+                        placeholder="Ejercicio principal (ej: Sentadilla)">
+
+                    <textarea class="checkin-input" id="checkinDescripcion"
+                        placeholder="¿Cómo fue el entrenamiento? Series, repeticiones, sensación..."></textarea>
+
+                    <div class="checkin-peso">
+                        <label>Peso movido (kg):</label>
+                        <input type="number" class="checkin-input" id="checkinPeso" placeholder="80" min="0">
+                    </div>
+
+                    <div class="checkin-reps">
+                        <label>Repeticiones:</label>
+                        <input type="number" class="checkin-input" id="checkinReps" placeholder="8" min="0">
+                    </div>
+
+                    <div class="checkin-emojis">
+                        <label>¿Cómo fue? 💪</label>
+                        <div class="emojis-selector">
+                            <button class="emoji-btn" onclick="seleccionarEmooji('🔥')">🔥 Brutal</button>
+                            <button class="emoji-btn" onclick="seleccionarEmooji('💪')">💪 Bueno</button>
+                            <button class="emoji-btn" onclick="seleccionarEmooji('😮')">😮 Cansado</button>
+                            <button class="emoji-btn" onclick="seleccionarEmooji('😤')">😤 Difícil</button>
+                        </div>
+                        <input type="hidden" id="checkinEmoji" value="">
+                    </div>
+
+                    <div class="botones-checkin">
+                        <button class="btn-cancelar-checkin" onclick="cancelarCheckin()">❌ Cancelar</button>
+                        <button class="btn-publicar-checkin" onclick="publicarCheckin()">📤 PUBLICAR CHECK-IN</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GALERÍA DE CHECK-INS -->
+            <div class="galeria-checkins" id="galeriaCheckins">
+                <!-- Los check-ins se generan aquí con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- CSS PARA COMUNIDAD Y CHECK-IN -->
+    <!-- ============================================ -->
+    <style>
+        /* ============================================ */
+        /* SECCIÓN COMUNIDAD */
+        /* ============================================ */
+        .seccion-comunidad {
+            background: linear-gradient(135deg, #1a1a1a, #2a0000);
+            padding: 60px 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            color: white;
+            border: 3px solid white;
+        }
+
+        .titulo-seccion-comunidad {
+            font-size: 42px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo-seccion-comunidad {
+            text-align: center;
+            color: #fbbf24;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .comunidad-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* CREAR POST */
+        .crear-post-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .crear-post-card h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .post-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            margin-bottom: 15px;
+            resize: vertical;
+        }
+
+        .post-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .post-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .post-tags label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: #ccc;
+            transition: 0.3s;
+        }
+
+        .post-tags input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .post-tags label:hover {
+            color: #fbbf24;
+        }
+
+        .btn-publicar-post {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #fbbf24, #ef4444);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-publicar-post:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.4);
+        }
+
+        /* FILTROS */
+        .filtros-comunidad {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filtro-buscar,
+        .filtro-tag,
+        .filtro-orden {
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .filtro-buscar::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* POSTS */
+        .feed-posts {
+            display: grid;
+            gap: 20px;
+        }
+
+        .post-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .post-card:hover {
+            border-color: #fbbf24;
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.2);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .post-titulo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fbbf24;
+            margin: 0;
+        }
+
+        .post-fecha {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .post-tags-display {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .tag-badge {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .post-contenido {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .post-interacciones {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .post-stats {
+            display: flex;
+            gap: 20px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .btn-like-post {
+            background: none;
+            border: 2px solid rgba(255, 100, 200, 0.3);
+            color: #ff64c8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-like-post:hover {
+            border-color: #ff64c8;
+            background: rgba(255, 100, 200, 0.1);
+        }
+
+        .btn-like-post.liked {
+            background: rgba(255, 100, 200, 0.2);
+            border-color: #ff64c8;
+        }
+
+        /* ============================================ */
+        /* SECCIÓN CHECK-IN */
+        /* ============================================ */
+        .seccion-checkin {
+            background: linear-gradient(135deg, #2a0000, #1a1a1a);
+            padding: 60px 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            color: white;
+            border: 3px solid white;
+        }
+
+        .titulo-seccion-checkin {
+            font-size: 42px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo-seccion-checkin {
+            text-align: center;
+            color: #fbbf24;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .checkin-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* SUBIR FOTO */
+        .subir-foto-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .zona-subida {
+            border: 3px dashed #fbbf24;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .zona-subida:hover {
+            background: rgba(251, 191, 36, 0.1);
+            transform: scale(1.02);
+        }
+
+        .icono-subida {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .zona-subida p {
+            margin: 10px 0;
+            font-weight: bold;
+            color: white;
+        }
+
+        .zona-subida small {
+            color: #888;
+        }
+
+        /* FORMULARIO CHECK-IN */
+        .formulario-checkin {
+            display: grid;
+            gap: 15px;
+        }
+
+        .preview-foto {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .checkin-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .checkin-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .checkin-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+        }
+
+        .checkin-peso,
+        .checkin-reps {
+            display: grid;
+            gap: 8px;
+        }
+
+        .checkin-peso label,
+        .checkin-reps label {
+            color: #fbbf24;
+            font-weight: bold;
+        }
+
+        .checkin-emojis {
+            display: grid;
+            gap: 10px;
+        }
+
+        .checkin-emojis label {
+            color: #fbbf24;
+            font-weight: bold;
+        }
+
+        .emojis-selector {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .emoji-btn {
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .emoji-btn:hover {
+            border-color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .emoji-btn.selected {
+            border-color: #fbbf24;
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+
+        .botones-checkin {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+        }
+
+        .btn-cancelar-checkin {
+            padding: 12px;
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid rgba(255, 0, 0, 0.5);
+            color: #ff6666;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-cancelar-checkin:hover {
+            background: rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-publicar-checkin {
+            padding: 12px;
+            background: linear-gradient(135deg, #fbbf24, #ef4444);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-publicar-checkin:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.4);
+        }
+
+        /* GALERÍA CHECK-INS */
+        .galeria-checkins {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .checkin-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .checkin-card:hover {
+            border-color: #fbbf24;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+        }
+
+        .checkin-imagen {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .checkin-info {
+            padding: 15px;
+        }
+
+        .checkin-ejercicio {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+
+        .checkin-peso-reps {
+            color: #ccc;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .checkin-emoji-display {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .checkin-descripcion {
+            color: #999;
+            font-size: 12px;
+            line-height: 1.4;
+            max-height: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .checkin-interacciones {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            color: #888;
+        }
+
+        .btn-like-checkin {
+            background: none;
+            border: none;
+            color: #ff64c8;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn-like-checkin:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .filtros-comunidad {
+                grid-template-columns: 1fr;
+            }
+
+            .emojis-selector {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .botones-checkin {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .galeria-checkins {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+
+
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT COMUNIDAD Y CHECK-IN -->
+    <!-- ============================================ -->
+    <script>
+        // ============================================
+        // SISTEMA DE COMUNIDAD / FORO
+        // ============================================
+
+        let posts = JSON.parse(localStorage.getItem('postsComunidad') || '[]');
+
+        function publicarPost() {
+            const titulo = document.getElementById('postTitulo').value.trim();
+            const contenido = document.getElementById('postContenido').value.trim();
+
+            const tagsSeleccionados = Array.from(document.querySelectorAll('.post-tags input:checked'))
+                .map(input => input.value);
+
+            if (!titulo || !contenido) {
+                alert('⚠️ Rellena título y descripción de la rutina');
+                return;
+            }
+
+            if (tagsSeleccionados.length === 0) {
+                alert('⚠️ Selecciona al menos un tipo de rutina');
+                return;
+            }
+
+            const nuevoPost = {
+                id: Date.now(),
+                titulo: titulo,
+                contenido: contenido,
+                tags: tagsSeleccionados,
+                fecha: new Date().toLocaleDateString('es-ES'),
+                likes: 0,
+                comentarios: 0,
+                autor: 'Usuario Iván Gym'
+            };
+
+            posts.unshift(nuevoPost);
+            localStorage.setItem('postsComunidad', JSON.stringify(posts));
+
+            // Limpiar formulario
+            document.getElementById('postTitulo').value = '';
+            document.getElementById('postContenido').value = '';
+            document.querySelectorAll('.post-tags input').forEach(input => input.checked = false);
+
+            // Mostrar confetti si existe
+            if (typeof lanzarConfetti === 'function') lanzarConfetti(50);
+            alert('✅ ¡Rutina publicada! Los demás usuarios la verán.');
+
+            renderizarFeed();
+        }
+
+        function filtrarPosts() {
+            const busqueda = document.getElementById('filtroBuscar').value.toLowerCase();
+            const tag = document.getElementById('filtroTag').value;
+            const orden = document.getElementById('filtroOrden').value;
+
+            let postsFiltrados = posts.filter(post => {
+                const coincideBusqueda = post.titulo.toLowerCase().includes(busqueda) ||
+                    post.contenido.toLowerCase().includes(busqueda);
+                const coincideTag = !tag || post.tags.includes(tag);
+                return coincideBusqueda && coincideTag;
+            });
+
+            // Ordenar
+            if (orden === 'populares') {
+                postsFiltrados.sort((a, b) => b.likes - a.likes);
+            } else if (orden === 'comentarios') {
+                postsFiltrados.sort((a, b) => b.comentarios - a.comentarios);
+            }
+
+            // Renderizar
+            const feed = document.getElementById('feedPosts');
+            if (postsFiltrados.length === 0) {
+                feed.innerHTML = '<p style="text-align: center; color: #888; padding: 40px;">No hay rutinas que coincidan con tu búsqueda 🔍</p>';
+                return;
+            }
+
+            feed.innerHTML = postsFiltrados.map(post => `
+            <div class="post-card">
+                <div class="post-header">
+                    <h2 class="post-titulo">${post.titulo}</h2>
+                    <span class="post-fecha">${post.fecha}</span>
+                </div>
+                
+                <div class="post-tags-display">
+                    ${post.tags.map(tag => `<span class="tag-badge">${tag}</span>`).join('')}
+                </div>
+
+                <p class="post-contenido">${post.contenido}</p>
+
+                <div class="post-interacciones">
+                    <div class="post-stats">
+                        <span>❤️ ${post.likes} likes</span>
+                        <span>💬 ${post.comentarios} comentarios</span>
+                    </div>
+                    <button class="btn-like-post" onclick="darLikePost(${post.id})">❤️ Me gusta</button>
+                </div>
+            </div>
+        `).join('');
+        }
+
+        function darLikePost(idPost) {
+            const post = posts.find(p => p.id === idPost);
+            if (post) {
+                post.likes++;
+                localStorage.setItem('postsComunidad', JSON.stringify(posts));
+                filtrarPosts();
+            }
+        }
+
+        function renderizarFeed() {
+            filtrarPosts();
+        }
+
+        // Cargar posts al iniciar
+        renderizarFeed();
+
+
+        // ============================================
+        // SISTEMA DE FOTO CHECK-IN
+        // ============================================
+
+        let checkins = JSON.parse(localStorage.getItem('checkinsGym') || '[]');
+        let fotoActual = null;
+        let emojiSeleccionado = '';
+
+        function procesarFoto(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                fotoActual = e.target.result;
+                document.getElementById('previewFoto').src = fotoActual;
+                document.getElementById('formularioCheckin').style.display = 'grid';
+                document.getElementById('zonaSubida').style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function seleccionarEmooji(emoji) {
+            emojiSeleccionado = emoji;
+            document.getElementById('checkinEmoji').value = emoji;
+
+            // Actualizar UI
+            document.querySelectorAll('.emoji-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+        }
+
+        function cancelarCheckin() {
+            fotoActual = null;
+            emojiSeleccionado = '';
+            document.getElementById('formularioCheckin').style.display = 'none';
+            document.getElementById('zonaSubida').style.display = 'block';
+            document.getElementById('inputFoto').value = '';
+            document.querySelectorAll('.emoji-btn').forEach(btn => btn.classList.remove('selected'));
+        }
+
+        function publicarCheckin() {
+            const ejercicio = document.getElementById('checkinEjercicio').value.trim();
+            const descripcion = document.getElementById('checkinDescripcion').value.trim();
+            const peso = document.getElementById('checkinPeso').value;
+            const reps = document.getElementById('checkinReps').value;
+
+            if (!ejercicio || !fotoActual) {
+                alert('⚠️ Rellena el ejercicio y sube una foto');
+                return;
+            }
+
+            const nuevoCheckin = {
+                id: Date.now(),
+                foto: fotoActual,
+                ejercicio: ejercicio,
+                descripcion: descripcion,
+                peso: peso ? peso + ' kg' : '-',
+                reps: reps ? reps + ' reps' : '-',
+                emoji: emojiSeleccionado || '💪',
+                fecha: new Date().toLocaleDateString('es-ES'),
+                likes: 0,
+                autor: 'Usuario Iván Gym'
+            };
+
+            checkins.unshift(nuevoCheckin);
+            localStorage.setItem('checkinsGym', JSON.stringify(checkins));
+
+            // Limpiar y reset
+            cancelarCheckin();
+            document.getElementById('checkinEjercicio').value = '';
+            document.getElementById('checkinDescripcion').value = '';
+            document.getElementById('checkinPeso').value = '';
+            document.getElementById('checkinReps').value = '';
+
+            if (typeof lanzarConfetti === 'function') lanzarConfetti(100);
+            alert('✅ ¡Check-in publicado! Muestra tu consistencia.');
+
+            renderizarGaleriaCheckins();
+        }
+
+        function renderizarGaleriaCheckins() {
+            const galeria = document.getElementById('galeriaCheckins');
+
+            if (checkins.length === 0) {
+                galeria.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #888; padding: 40px;">Sé el primero en hacer check-in 📸</p>';
+                return;
+            }
+
+            galeria.innerHTML = checkins.map(checkin => `
+            <div class="checkin-card">
+                <img src="${checkin.foto}" alt="${checkin.ejercicio}" class="checkin-imagen">
+                <div class="checkin-info">
+                    <div class="checkin-ejercicio">${checkin.ejercicio}</div>
+                    <div class="checkin-peso-reps">${checkin.peso} · ${checkin.reps}</div>
+                    <div class="checkin-emoji-display">${checkin.emoji}</div>
+                    <div class="checkin-descripcion">${checkin.descripcion || 'Sin descripción'}</div>
+                    <div class="checkin-interacciones">
+                        <span>${checkin.fecha}</span>
+                        <button class="btn-like-checkin" onclick="darLikeCheckin(${checkin.id})">❤️ ${checkin.likes}</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        }
+
+        function darLikeCheckin(idCheckin) {
+            const checkin = checkins.find(c => c.id === idCheckin);
+            if (checkin) {
+                checkin.likes++;
+                localStorage.setItem('checkinsGym', JSON.stringify(checkins));
+                renderizarGaleriaCheckins();
+            }
+        }
+
+        // Cargar galería al iniciar
+        renderizarGaleriaCheckins();
+    </script>
+
 
     <!-- ============================================ -->
     <!-- MITOS DEL GYM -->
